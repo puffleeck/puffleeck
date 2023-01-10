@@ -3,20 +3,14 @@
 <title>puffleeck resume</title>
 <style>
 * {padding: 0; margin: 0;}
-#mine{
+#mine, #you, #TestTasks{
+  border-bottom: 1px solid black;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  position: relative;
-  border: 1px solid black;
-}
-#you{
-  display: grid;
-  grid-template-columns: repeat(6, 1fr);
-}
-#TestTasks{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
   }
+#mine{grid-template-columns: repeat(5, 1fr); position: relative;}
+#you{grid-template-columns: repeat(6, 1fr);}
+#TestTasks{grid-template-columns: repeat(2, 1fr);}
+
 #mine > *:hover:before, #mine > *:hover:after{
    content: '';
    position: absolute;
