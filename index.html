@@ -3,13 +3,15 @@
 <title>puffleeck resume</title>
 <style>
 * {padding: 0; margin: 0;}
-#mine, #you, #TestTasks{
-  display: grid;
+.c{
   background: #aaa;
-  border-radius: 2em;
+  border-radius: 1.2em;
   margin: 2em;
   padding: 1em;
-  box-shadow: 0 0 1.2em #ccc;
+  box-shadow: 4px 5px 9px 2px rgba(0, 0, 0, 0.7);
+}
+#mine, #you{
+  display: grid;
   }
 #mine{grid-template-columns: repeat(5, 1fr); position: relative;}
 #you{grid-template-columns: repeat(6, 1fr);}
@@ -44,8 +46,8 @@
   }
 </style>
            </head><body>
-<header>Puffleeck</header>
-<div id='mine'>
+<header class='c'>Puffleeck</header>
+<div id='mine' class='c'>
 <b>мои:</b>                   <b>инструменты</b>                 <b>навыки</b>                      <b>услуги</b>                   <b>nickname</b>
 
 <b>hardware:</b>              <p>desktop-x86</p>                 <p>сборка, обслуживание</p>        <p>---</p>                      <p>---</p>
@@ -62,7 +64,7 @@
 <b>social hub`s:</b>          <p>vk, discord</p>                 <p>text(нет гарнитуры)</p>         <p>---</p>                      <p>puffleeck</p>
 <i>"+++" - duble prew col.</i><i>"---" - none</i>                <p>---</p>                         <p>---</p>                      <p>---</p>
 </div>
-<p id='you'>
+<p id='you' class='c'>
 <b>валюта</b>    <b>вилка</b>     <b>доступная локация</b>   <b>график</b>                  <b>оформление</b>   <b>time hub</b>
 <b>рубли</b>     <b>120к+</b>     <b>РФ и безвиз</b>         <b>максимально свободный</b>   <b>хз</b>           <b>любой</b>
 </p>
