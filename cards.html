@@ -17,7 +17,8 @@ body, #f { padding: 0; margin: 0; }
 		display: grid;
 		width: 100%;
 		height: 100%;
-		grid-template-columns: 1fr 3fr
+		grid-template-columns: 1fr 3fr;
+		grid-template-rows: 5em auto;
 		}
 
 	#NoPrint					{grid-row: 1; grid-column: 1 / 3;}
@@ -39,6 +40,20 @@ body, #f { padding: 0; margin: 0; }
 	font-size: 20px;
 	}
 	#sample, x{display: inline-block;}
+
+		
+	.p0{display: block;}
+	.p1{display: block;} .p1 > *{float: left}
+	.p2{display: block;} .p2 > *{display: inline-block;}
+	.p3{display: flex;}
+	.p4{display: grid; grid-template-columns: repeat(1, 1fr);}
+	.p5{display: grid; grid-template-columns: repeat(2, 1fr);}
+	.p6{display: grid; grid-template-columns: repeat(3, 1fr);}
+	.p7{display: grid; grid-template-columns: repeat(4, 1fr);}
+	.p8{display: grid; grid-template-columns: repeat(5, 1fr);}
+	.p9{display: grid; grid-template-columns: repeat(6, 1fr);}
+	.p10{display: grid; grid-template-columns: repeat(7, 1fr);}
+	.p11{display: grid; grid-template-columns: repeat(8, 1fr);}
 </style>
 <script>
 var $$ = {
@@ -61,6 +76,7 @@ i: 0,
 sum: 0,
 clear: function(){this.GI('Print').innerHTML = '';},
 del: function(id){this.RC(this.GI('Print'), this.GI(id));},
+change_class: function(name){this.GI('Print').className=name;},
 new_add: function()
 	{
 		var print = this.GI('Print');
@@ -91,12 +107,7 @@ reStyler: function()
 		'color: ' + this.GI('cast_color').value + ';' +
 		'background-color: ' + this.GI('cast_bg_color').value + ';' +
 		'}';
-	},
-sort: function(value, name)
-	{
-		this.GI("Print").style = value;
-		name ? this.QSF("#Print > *").style= 'display: ' + name + '-block;' : '';
-		}
+	}
 };
 </script>
 </head>
@@ -116,20 +127,29 @@ sort: function(value, name)
 		<option>+ #tpl</option>
 		<option>+ $$.sort</option>
 	</optgroup>
+	<optgroup label='17.10.2023'>
+		<option>replace $$.sort to $$.change_class()</option>
+		<option>fix select inline</option>
+		<option>fix #tpl css snippet</option>
+		<option>+ select float</option>
+		<option>fix size #NoPrint in #f grid</option>
+	</optgroup>
 	<option>---</option>
 </select>
-<select onchange='$$.sort(this.value, this.name); console.log(this)'>
-	<option>display: block;</option>
-	<option>display: flex;</option>
-	<option name='inline' value='display: block;'>block{inline-block} *this no work</option>
-	<option>display: grid; grid-template-columns: repeat(1, 1fr);</option>
-	<option>display: grid; grid-template-columns: repeat(2, 1fr);</option>
-	<option>display: grid; grid-template-columns: repeat(3, 1fr);</option>
-	<option>display: grid; grid-template-columns: repeat(4, 1fr);</option>
-	<option>display: grid; grid-template-columns: repeat(5, 1fr);</option>
-	<option>display: grid; grid-template-columns: repeat(6, 1fr);</option>
-	<option>display: grid; grid-template-columns: repeat(7, 1fr);</option>
-	<option>display: grid; grid-template-columns: repeat(8, 1fr);</option>
+
+<select onchange='$$.change_class(this.value);'>
+	<option value='p0'>display: block;</option>
+	<option value='p1'>display: block{float:left}</option>
+	<option value='p2'>display: block{inline-block}</option>
+	<option value='p3'>display: flex;</option>
+	<option value='p4'>display: grid; repeat(1, 1fr);</option>
+	<option value='p5'>display: grid; repeat(2, 1fr);</option>
+	<option value='p6'>display: grid; repeat(3, 1fr);</option>
+	<option value='p7'>display: grid; repeat(4, 1fr);</option>
+	<option value='p8'>display: grid; repeat(5, 1fr);</option>
+	<option value='p9'>display: grid; repeat(6, 1fr);</option>
+	<option value='p10'>display: grid; repeat(7, 1fr);</option>
+	<option value='p11'>display: grid; repeat(8, 1fr);</option>
 </select>
 
 <input tabindex='1' type='text' id='t1' placeholder='t1' oninput='$$.GI("st1").innerHTML=this.value;'/>
@@ -170,9 +190,12 @@ sort: function(value, name)
 		<x id="st3" class="t3"></x>
 		</div>
 	<script class='snippet' contenteditable>
-		/*11111*/
+	/*script*/
 	</script>
-	<style class='snippet' id='styler'></style>
+	<style class='snippet' id='styler' contenteditable>
+	/*style*/
+	</style>
+
 </div>
 
 <div id='Print'></div>
