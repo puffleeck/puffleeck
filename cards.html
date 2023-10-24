@@ -45,7 +45,14 @@ body, .tabs { padding: 0; margin: 0; }
 	.p8{display: grid; grid-template-columns: repeat(6, 1fr);}
 	.p9{display: grid; grid-template-columns: repeat(7, 1fr);}
 	.p10{display: grid; grid-template-columns: repeat(8, 1fr);}
-	.p11{display: grid; grid-template-columns: repeat(2400, 1fr); grid-auto-flow: dense;} /* Gantt chart | диаграмма Ганта */
+	.p11{
+		display: grid;
+		grid-template-columns: repeat(2400, 1fr);
+		grid-auto-flow: dense;
+		overflow-x: auto;
+	} /* Gantt chart | диаграмма Ганта */
+
+	fieldset{display: inline-block;}
 </style>
 <script>
 var $$ = {
@@ -55,10 +62,8 @@ QSA: function(css) {return document.querySelectorAll(css)},
 QSF: function(css) {return document.querySelector(css)},
 GTN: function(elem, tag) {return elem.getElementsByTagName(tag)},
 GCN: function(elem, Nclass) {return elem.getElementsByClassName(Nclass)}, // ! IE8-
-
 CE: function(tagN) {return document.createElement(tagN)},
 CTN: function(text) {return document.createTextNode(text)},
-
 AC: function (elem, newElem) {return elem.appendChild(newElem);},
 IB: function (elem, newElem, nextElem) {return elem.insertBefore(newElem, nextElem);},
 RC: function (elem, delElem) {elem.removeChild(delElem);},
@@ -68,24 +73,29 @@ i: 0,
 sum: 0,
 clear: function(){this.GI('Print').innerHTML = '';},
 del: function(id){this.RC(this.GI('Print'), this.GI(id));},
-change_class: function(name){this.GI('Print').className=name;},
+CCN: function(target, name){this.GI(target).className=name;},
 new_add: function()
 	{
 		var print = this.GI('Print');
 		var t1 = this.GI('t1').value;
 		var t2 = this.GI('t2').value;
 		var t3 = this.GI('t3').value;
-		var num = this.GI('num').value;
+		var ts = this.GI('ts').value;
+		var te = this.GI('te').value;
+		var num = (a ? a : this.GI('num').value);
 		while(this.i != num)
 		{
 			var nDiv = this.CE('div');
 			nDiv.id = this.sum;
 			nDiv.className = this.GI('added_style').value;
 			this.AC(print, nDiv);
-			nDiv.outerHTML =`<div id="${this.sum}" class="${nDiv.className}" onclick='javascript:$$.del("${this.sum}")'>` + 
-				`<x class='${t1}'>${t1}</x><br/>` +
-				`<x class='${t2}'>${t2}</x><br/>` +
-				`<x class='${t3}'>${t3}</x>`;
+			nDiv.outerHTML ='<div id="' + this.sum + '" class="' + nDiv.className + '"' +
+				(a ? ' style="grid-row: 1; grid-column: ' + this.i + '0' + (a && this.i==0? 1:0) + ' / ' + (this.i + 1) + '00"' : '') +
+				(this.GI('d').value == 'p11' ? ` style="grid-column: ${ts} / ${te}"` : '') +
+				' onclick="javascript:$$.del(' + this.sum + ')">' +
+				'<x class="t1">' + (a ? this.i : t1) + '</x><br/>' +
+				'<x class="t2">' + (a ? '' : t2) + '</x><br/>' +
+				'<x class="t3">' + (a ? '' : t3) + '</x>';
 			this.i++;
 			this.sum++;
 		}
@@ -94,7 +104,7 @@ new_add: function()
 reStyler: function()
 	{
 	this.GI("styler").innerHTML +=
-		'.' + this.GI('rest').value + ' > ' +
+		'\n.' + this.GI('rest').value + ' > ' +
 		'.' + this.GI('cast_sel').value + '{' +
 		'color: ' + this.GI('cast_color').value + ';' +
 		'background-color: ' + this.GI('cast_bg_color').value + ';' +
@@ -104,93 +114,116 @@ reStyler: function()
 </script>
 </head>
 <body>
-<div id='f'>
-<div id='NoPrint'>
-<select>
-	<option selected>date-change log`s</option>
-	<option>25.02.2022 ?</option>
+<div id='menu' class='NoPrint'>
+	<a href='#cards'>cards</a>
+	<a href='#display'>display</a>
+	<a href='#info'>info</a>
+	<a href='#'>hide all</a>
+</div>
 
-	<optgroup label='15.07.2022'>
-		<option>#Print.style=display: grid</option>
-		<option>+ #sample</option>
-	</optgroup>
-	<optgroup label='31.08.2022'>
-		<option>#f.style=display: grid</option>
-		<option>+ #tpl</option>
-		<option>+ $$.sort</option>
-	</optgroup>
-	<optgroup label='17.10.2023'>
-		<option>replace $$.sort to $$.change_class()</option>
-		<option>fix select inline</option>
-		<option>fix #tpl css snippet</option>
-		<option>+ select float</option>
-		<option>fix size #NoPrint in #f grid</option>
-	</optgroup>
-	<option>---</option>
-</select>
-
-<select onchange='$$.change_class(this.value);'>
-	<option value='p0'>display: block;</option>
-	<option value='p1'>display: block{float:left}</option>
+<div id='cards' class='tabs'>
+	<div id='cards_menu' class='NoPrint'>
+	<select id='d' onchange='$$.CCN("Print", this.value); if(this.value == "p11"){$$.new_add(24)}'>
+	<option value='p0'>display: flex</option>
+	<option value='p1'>display: block</option>
 	<option value='p2'>display: block{inline-block}</option>
-	<option value='p3'>display: flex;</option>
-	<option value='p4'>display: grid; repeat(1, 1fr);</option>
-	<option value='p5'>display: grid; repeat(2, 1fr);</option>
-	<option value='p6'>display: grid; repeat(3, 1fr);</option>
-	<option value='p7'>display: grid; repeat(4, 1fr);</option>
-	<option value='p8'>display: grid; repeat(5, 1fr);</option>
-	<option value='p9'>display: grid; repeat(6, 1fr);</option>
-	<option value='p10'>display: grid; repeat(7, 1fr);</option>
-	<option value='p11'>display: grid; repeat(8, 1fr);</option>
-</select>
+	<option value='p3'>display: grid; repeat(1, 1fr);</option>
+	<option value='p4'>display: grid; repeat(2, 1fr);</option>
+	<option value='p5'>display: grid; repeat(3, 1fr);</option>
+	<option value='p6'>display: grid; repeat(4, 1fr);</option>
+	<option value='p7'>display: grid; repeat(5, 1fr);</option>
+	<option value='p8'>display: grid; repeat(6, 1fr);</option>
+	<option value='p9'>display: grid; repeat(7, 1fr);</option>
+	<option value='p10'>display: grid; repeat(8, 1fr);</option>
+	<option value='p11'>Gantt chart | диаграмма Ганта</option>
+	</select>
 
-<input tabindex='1' type='text' id='t1' placeholder='t1' oninput='$$.GI("st1").innerHTML=this.value;'/>
-<input tabindex='2' type='text' id='t2' placeholder='t2' oninput='$$.GI("st2").innerHTML=this.value;'/>
-<input tabindex='3' type='text' id='t3' placeholder='t3' oninput='$$.GI("st3").innerHTML=this.value;'/>
-<select id='added_style'>
+	<input tabindex='1' type='text' id='t1' placeholder='header(.t1)' oninput='$$.GI("st1").innerHTML=this.value;'/>
+	<input tabindex='2' type='text' id='t2' placeholder='text(.t2)' oninput='$$.GI("st2").innerHTML=this.value;'/>
+	<input tabindex='3' type='text' id='t3' placeholder='text(.t3)' oninput='$$.GI("st3").innerHTML=this.value;'/>
+	<input tabindex='4' type='text' id='ts' placeholder='time start'/>
+	<input tabindex='4' type='text' id='te' placeholder='time end'/>
+
+		
+	<select id='added_style' onchange='$$.CCN("sample", this.value);'>
 	<option>style1</option>
 	<option>style2</option>
 	<option>style3</option>
 	<option>style4</option>
 	<option>style5</option>
-</select>
-<input tabindex='4' type='text' id='num' placeholder='num'/>
-<input tabindex='5' type='button' onclick="$$.new_add();" value='+' />
-<input tabindex='6' type='button' onclick="$$.clear();" value='clear' />
-<hr/>
-<select id='rest'>
+	</select>
+	
+	<input tabindex='4' type='text' id='num' placeholder='num'/>
+	<input tabindex='5' type='button' onclick="$$.new_add();" value='+' />
+	<input tabindex='6' type='button' onclick="$$.clear();" value='clear' />
+	<hr/>
+
+	<select id='rest'>
 	<option>style1</option>
 	<option>style2</option>
 	<option>style3</option>
 	<option>style4</option>
 	<option>style5</option>
-</select>
-<select id='cast_sel'>
+	</select>
+
+	<select id='cast_sel'>
 	<option>t1</option>
 	<option>t2</option>
 	<option>t3</option>
-</select>
-<input type='color' id='cast_color' name='cast_color'/>
-<input type='color' id='cast_bg_color' name='cast_bg_color' value='#ffffff'/>
-<input type='button' value='ok' onclick='$$.reStyler();'/>
-</div>
+	</select>
 
-<div id='tpl'>
+	<input type='color' id='cast_color' name='cast_color'/>
+	<input type='color' id='cast_bg_color' name='cast_bg_color' value='#ffffff'/>
+	<input type='button' value='ok' onclick='$$.reStyler();'/>
+	</div>
+
+	<div id='tpl' class='NoPrint'>
 	<div id="sample" class="style1">
-		<x id="st1" class="t1"></x><br>
-		<x id="st2" class="t2"></x><br>
-		<x id="st3" class="t3"></x>
-		</div>
-	<script class='snippet' contenteditable>
-	/*script*/
-	</script>
-	<style class='snippet' id='styler' contenteditable>
-	/*style*/
-	</style>
+	<x id="st1" class="t1"></x><br>
+	<x id="st2" class="t2"></x><br>
+	<x id="st3" class="t3"></x>
+	</div>
+	<script class='snippet' contenteditable>/*script*/</script>
+	<style class='snippet' id='styler' contenteditable>/*style*/</style>
+	</div>
 
+	<div id='Print'></div>
 </div>
 
-<div id='Print'></div>
+<div id='info' class='tabs'>
+	<fieldset><legend>contacts</legend>
+		<p><a href='mailto://puffleeck@mail.ru'>puffleeck@mail.ru</a></p>
+		<p><a href='https://ru.stackoverflow.com/users/512628/puffleeck'>ru.stackoverflow.com / puffleeck</a></p>
+	</fieldset>
+
+	<fieldset><legend>change log</legend>
+		<fieldset><legend>15.07.2022</legend>
+		<p>#Print = grid</p>
+		<p>+ #sample</p>
+		</fieldset>
+
+		<fieldset><legend><h3>31.08.2022</legend>
+		<p>#f = grid</p>
+		<p>+ #tpl</p>
+		<p>+ $$.sort</p>
+		</fieldset>
+
+		<fieldset><legend>17.10.2023</legend>
+		<p>fix select inline</p>
+		<p>fix #tpl css snippet</p>
+		<p>+ select float</p>
+		<p>fix size #NoPrint in #f grid</p>
+		</fieldset>
+
+		<fieldset><legend>25.10.2023</legend>
+		<p>replace $$.sort to $$.CCN()</p>
+		<p>fix #tpl</p>
+		<p>fix $$.reStyler</p>
+		<p>other fixes</p>
+		<p>change log muve to info</p>
+		<p>-</p>
+		</fieldset>
+	</fieldset>
 </div>
 </body>
 </html>
