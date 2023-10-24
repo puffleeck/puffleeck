@@ -52,7 +52,7 @@ body, .tabs { padding: 0; margin: 0; }
 		overflow-x: auto;
 	} /* Gantt chart | диаграмма Ганта */
 
-	fieldset{display: inline-block;}
+	.horizont{display: block flex; overflow-x: scroll}
 </style>
 <script>
 var $$ = {
@@ -191,12 +191,14 @@ reStyler: function()
 </div>
 
 <div id='info' class='tabs'>
-	<fieldset><legend>contacts</legend>
-		<p><a href='mailto://puffleeck@mail.ru'>puffleeck@mail.ru</a></p>
-		<p><a href='https://ru.stackoverflow.com/users/512628/puffleeck'>ru.stackoverflow.com / puffleeck</a></p>
+	<fieldset class='horizont'><legend>about me</legend>
+		<fieldset><legend>contacts</legend>
+			<p><a href='mailto://puffleeck@mail.ru'>puffleeck@mail.ru</a></p>
+			<p><a href='https://ru.stackoverflow.com/users/512628/puffleeck'>ru.stackoverflow.com / puffleeck</a></p>
+		</fieldset>
 	</fieldset>
 
-	<fieldset style='display: flex'><legend>change log</legend>
+	<fieldset class='horizont'><legend>change log</legend>
 		<fieldset><legend>15.07.2022</legend>
 		<p>#Print = grid</p>
 		<p>+ #sample</p>
@@ -215,11 +217,16 @@ reStyler: function()
 		<p>fix size #NoPrint in #f grid</p>
 		</fieldset>
 
-		<fieldset><legend>25.10.2023</legend>
+		<fieldset><legend>19.10.2023</legend>
 		<p>replace $$.sort to $$.CCN()</p>
 		<p>fix #tpl</p>
 		<p>fix $$.reStyler</p>
+		<p>fix @media</p>
 		<p>other fixes</p>
+		</fieldset>
+
+		<fieldset><legend>25.10.2023</legend>
+		<p>+ Gantt chart</p>
 		<p>change log muve to info</p>
 		<p>-</p>
 		</fieldset>
