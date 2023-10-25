@@ -11,6 +11,11 @@
 	padding: 5px;
 	}
 body, .tabs { padding: 0; margin: 0; }
+@media all and (display-mode: fullscreen) {
+	#menu, #display > *{display: none}
+	body, #display{scrollbar-width: none;}
+	#display{height: 100%;}
+}
 @media print{#menu, .tabs > :not(#print){display: none;}}
 @media screen, mobile, tv, tablet, handheld, projection{
 	.tabs{display: none;}
@@ -257,6 +262,16 @@ reStyler: function()
 		<p>-</p>
 		</fieldset>
 	</fieldset>
+</div>
+
+<div id='display' class='tabs'>
+	<p style='text-shadow: 2px 2px 2px yellow, -2px -2px 2px pink; text-align: center;'>данная страница предназначена для обслуживания дисплея \ монитора<br>
+		(чтоб пыль было лучше видно при очистке, и для поиска битых пикселей)</p>
+	<input type='button' onclick='$$.GI("display").style="background:red;"' value='red'>
+	<input type='button' onclick='$$.GI("display").style="background: green;"' value='green'>
+	<input type='button' onclick='$$.GI("display").style="background: blue;"' value='blue'>
+	<input type='button' onclick='$$.GI("display").style="background: white;"' value='white'>
+	<input type='button' onclick='$$.GI("display").style="background: black;"' value='black'>
 </div>
 </body>
 </html>
