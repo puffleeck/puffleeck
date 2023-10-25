@@ -32,6 +32,16 @@ body, .tabs { padding: 0; margin: 0; }
 	#tpl						{grid-row: 2; grid-column: 1; border-right: 2px black solid}
 	#Print						{grid-row: 2; grid-column: 2; overflow-x: scroll}
 
+	#menu{
+		display: grid;
+		grid-auto-flow: column;
+		text-align: center;
+		background: var(--bg-light);
+		}
+	#menu > *{border-radius: .5em; margin: .2em}
+	#menu > *:hover{background: rgba(256, 256, 256, 0.5);}
+
+	
 .style1, .style2, .style3, .style4, .style5{
 	border: 1px #000 solid;
 	padding: 5px;
