@@ -1,0 +1,177 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+		}
+	#abc{
+		display: grid;
+		background: rgba(0, 0, 200, 0.5);
+		width: 800px;
+		grid-template-columns: repeat(20, 40px);
+		grid-template-rows: repeat(25, 40px);
+		border: 1px #000 solid;
+		}
+	.a{background: #ffc; grid-column: 4;}
+	.b{background: #fcf; grid-column: 5;}
+	.c{background: #cff; grid-column: 6;}
+	.d{background: #ffc; grid-column: 7;}
+	.e{background: #fcf; grid-column: 8;}
+	.f{background: #cff; grid-column: 9;}
+	.g{background: #ffc; grid-column: 10;}
+	.h{background: #fcf; grid-column: 11;}
+	.i{background: #cff; grid-column: 12;}
+	.jjf{
+		grid-row-start: 1;
+		grid-row-end: 5;
+		grid-column-start: 1;
+		grid-column-end: 4;
+		z-index:5;
+		background: rgba(255, 255, 255, 0.5);
+		}
+		.fff{grid-row: 6; background: #aac;}
+		.x{grid-row-start: 2; grid-row-end: 4; grid-column: 2; background: #f90;}
+		 .z{background: #7f7;}
+		 .ee{
+			background: rgba(0, 0, 0, 0.3);
+			grid-row-start: 1;
+			grid-row-end: 14;
+			grid-column-start: 7;
+			grid-column-end: 10;
+			}
+</style>
+</head>
+<body>
+<b id='abc'>
+	<b class='z' style='grid-row: 2; grid-column: 12;'>#</b>
+	<b class='z' style='grid-row: 3; grid-column: 12;'>#</b>
+	<b class='z' style='grid-row: 4; grid-column: 12;'>#</b>
+	<b class='z' style='grid-row: 5; grid-column: 12;'>#</b>
+	<b class='z' style='grid-row: 6; grid-column: 12;'>#</b>
+	<b class='z' style='grid-row: 4; grid-column: 13;'>#</b>
+	<b class='z' style='grid-row: 6; grid-column: 13;'>#</b>
+	<b class='z' style='grid-row: 4; grid-column: 14;'>#</b>
+	<b class='z' style='grid-row: 5; grid-column: 14;'>#</b>
+	<b class='z' style='grid-row: 6; grid-column: 14;'>#</b>
+	<b class='z' style='grid-row: 2; grid-column: 16;'>#</b>
+	<b class='z' style='grid-row: 3; grid-column: 16;'>#</b>
+	<b class='z' style='grid-row: 4; grid-column: 16;'>#</b>
+	<b class='z' style='grid-row: 5; grid-column: 16;'>#</b>
+	<b class='z' style='grid-row: 6; grid-column: 16;'>#</b>
+
+	<b class='ee'></b>
+
+	<b class='a'>a</b>
+	<b class='b'>b</b>
+	<b class='c'>c</b>
+	<b class='a'>a</b>
+	<b class='a'>a</b>
+	<b class='b'>b</b>
+	<b class='b'>b</b>
+	<b class='c'>c</b>
+	<b class='c'>c</b>
+	<b class='c'>c</b>
+	<b class='b'>b</b>
+	<b class='a'>a</b>
+	<b class='c'>c</b>
+	<b class='b'>b</b>
+	<b class='a'>a</b>
+	<b class='c'>c</b>
+	<b class='a'>a</b>
+	<b class='b'>b</b>
+	<b class='c'>c</b>
+<b class='a'>a</b>
+<b class='b'>b</b>
+<b class='c'>c</b>
+<b class='d'>d</b>
+<b class='e'>e</b>
+<b class='f'>f</b>
+<b class='g'>g</b>
+<b class='h'>h</b>
+<b class='i'>i</b>
+
+<b class='a'>a</b>
+<b class='b'>b</b>
+<b class='c'>c</b>
+<b class='d'>d</b>
+<b class='e'>e</b>
+<b class='f'>f</b>
+<b class='g'>g</b>
+<b class='h'>h</b>
+<b class='i'>i</b>
+
+<b class='a'>a</b>
+<b class='c'>c</b>
+<b class='e'>e</b>
+<b class='g'>g</b>
+<b class='i'>i</b>
+
+<b class='b'>b</b>
+<b class='d'>d</b>
+<b class='f'>f</b>
+<b class='h'>h</b>
+
+	<b class='fff'>fff</b>
+	<b class='fff'>fff</b>
+	<b class='fff'>fff</b>
+	<b class='fff'>fff</b>
+	<b class='fff'>fff</b>
+	<b class='fff'>fff</b>
+	<b class='fff'>fff</b>
+	<b class='fff'>fff</b>
+
+
+<b class='a'>a</b>
+<b class='c'>c</b>
+<b class='e'>e</b>
+<b class='g'>g</b>
+<b class='i'>i</b>
+
+<b class='b'>b</b>
+<b class='d'>d</b>
+<b class='f'>f</b>
+<b class='h'>h</b>
+
+
+
+	<b class='fff'>fff</b>
+	<b class='fff'>fff</b>
+	<b class='x'>x</b>
+	<b class='fff'>fff</b>
+	<b class='jjf'>jjf</b>
+	<b class='fff'>fff</b>
+	<b class='fff'>fff</b>
+	
+	
+	<style>
+	.body{
+		grid-row-start: 10;
+		grid-row-end: 15;
+		grid-column-start: 11;
+		grid-column-end: 20;
+		background: rgba(0, 0, 0, 0.3);
+		z-index:7;
+		border: 3px #f00 solid;
+		text-align:center;
+		}
+	.s{background: #099;}
+	.sp{background: #990; text-align:center;}
+	</style>
+	<b class='body'><br/><br/><br/>демонстрация<br>моего конг-фу<br/>в размазывании<br>блоков по макету))</b>
+	<b class='s' style='grid-row: 10; grid-column: 11;'>ы</b>
+	<b class='s' style='grid-row: 10; grid-column: 12;'>ы</b>
+	<b class='s' style='grid-row: 10; grid-column: 13;'>ы</b>
+	<b class='s' style='grid-row: 10; grid-column: 14;'>ы</b>
+	<b class='s' style='grid-row: 10; grid-column: 15;'>ы</b>
+	<b class='s' style='grid-row: 10; grid-column: 16;'>ы</b>
+	<b class='s' style='grid-row: 10; grid-column: 17;'>ы</b>
+	<b class='s' style='grid-row: 10; grid-column: 18;'>ы</b>
+	<b class='s' style='grid-row: 10; grid-column: 19;'>ы</b>
+	<b class='sp' style='grid-row-start: 11; grid-row-end:14; grid-column-start: 11; grid-column-end: 13;'>пункт1<br/>пункт2<br/>пункт3<br/>пункт4<br/>пункт5<br/>пункт6</b>
+	<b class='sp' style='grid-row-start: 12; grid-row-end:13; grid-column-start: 18; grid-column-end: 20;'>реклама</b>
+</b>
+
+</body>
+</html>
