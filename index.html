@@ -137,10 +137,11 @@ reStyler: function()
 </head>
 <body>
 <div id='menu' class='NoPrint'>
+	<a href='#'>puffleeck spa</a>
 	<a href='#cards'>cards</a>
 	<a href='#display'>display</a>
 	<a href='#info'>info</a>
-	<a href='#'>hide all</a>
+	<a href='#settings'>settings</a>
 </div>
 
 <div id='cards' class='tabs'>
@@ -303,5 +304,20 @@ reStyler: function()
 	</fieldset>
 	<div id='fill'> </div>
 </div>
+
+<div id='settings' class='tabs'>
+	<form class='message'
+oninput='$$.GI("menu").style=`filter: hue-rotate(${this.children.h.value}deg) saturate(${this.children.s.value}%) brightness(${this.children.l.value}%) invert(${this.elements.i.value}%);`;'
+	>
+	Hue`верть почти как в старом, добром AIMP только круче :3<hr>
+	<input name='h' min="0" max="360" value="0" type="range" onfackeninput='$$.GI("menu").style="filter: hue-rotate(" + this.value + "deg);"'/><hr>
+	s<input name='s' min="0" max="200" value="100" type="number"/><hr>
+	b\l<input name='l' min="0" max="200" value="100" type="number"/><hr>
+	i(day<input checked name='i' value="0" type="radio"/>
+	<input name='i' value="100" type="radio"/>night)<hr>
+	пока без сохранения
+	</form>
+</div>
+
 </body>
 </html>
