@@ -16,7 +16,7 @@
 	overflow-x: scroll;
 	padding: 5px;
 	}
-body, .tabs { padding: 0; margin: 0; }
+body, .tabs { padding: 0; margin: 0; background: var(--bg-light);}
 @media print{#menu, .tabs > :not(#print){display: none;}}
 @media screen, mobile, tv, tablet, handheld, projection{
 	.tabs{display: none;}
@@ -77,7 +77,7 @@ body, .tabs { padding: 0; margin: 0; }
 		box-shadow: 0 5px 15px rgba(0,0,0, .5);
 		transition: all ease-out 0.1s;
 	}
-	.horizont .message:hover{
+	#info .message:hover{
 		transform: scale(1.1);
 		box-shadow: 0 5px 15px rgba(0,0,0, .7);
 	}
@@ -321,23 +321,45 @@ reStyler: function()
 		<input type='button' onclick='$$.GI("fill").style="background:red;"' value='red'>
 		<input type='button' onclick='$$.GI("fill").style="background: green;"' value='green'>
 		<input type='button' onclick='$$.GI("fill").style="background: blue;"' value='blue'>
+		<hr>
 		<input type='button' onclick='$$.GI("fill").style="background: white;"' value='white'>
+		<input type='button' onclick='$$.GI("fill").style="background: lightgray;"' value='light gray'>
+		<input type='button' onclick='$$.GI("fill").style="background: gray;"' value='gray'>
 		<input type='button' onclick='$$.GI("fill").style="background: black;"' value='black'>
+		<hr>
+		<input type='color' onchange='$$.GI("fill").style="background: " + this.value;'>
 	</fieldset>
 	<div id='fill'> </div>
 </div>
 
 <div id='settings' class='tabs'>
-	<form class='message'
-oninput='$$.GI("menu").style=`filter: hue-rotate(${this.children.h.value}deg) saturate(${this.children.s.value}%) brightness(${this.children.l.value}%) invert(${this.elements.i.value}%);`;'
+	<form class='message' oninput='$$.GI("b").style=`filter: hue-rotate(${this.children.h.value}deg) saturate(${this.children.s.value}%) brightness(${this.children.l.value}%) invert(${this.elements.i.value}%); background: hsl(${this.children.bh.value}deg, ${this.children.bs.value}%, ${this.children.bl.value}%);`;'
 	>
-	Hue`верть почти как в старом, добром AIMP только круче :3<hr>
-	<input name='h' min="0" max="360" value="0" type="range" onfackeninput='$$.GI("menu").style="filter: hue-rotate(" + this.value + "deg);"'/><hr>
-	s<input name='s' min="0" max="200" value="100" type="number"/><hr>
-	b\l<input name='l' min="0" max="200" value="100" type="number"/><hr>
-	i(day<input checked name='i' value="0" type="radio"/>
-	<input name='i' value="100" type="radio"/>night)<hr>
-	пока без сохранения
+		<label id='hue' for='h'></label>
+		<input id='h' min="0" max="360" value="0" type="range"/>
+	<hr>
+		<label id='saturate' for='s'></label>
+		<input id='s' min="0" max="200" value="100" type="number"/>
+	<hr>
+		<label id='brightness' for='l'></label>
+		<input id='l' min="0" max="200" value="100" type="number"/>
+	<hr>
+		<label id='night'><input name='i' value="100" type="radio"/></label>
+		<label id='day'><input checked name='i' value="0" type="radio"/></label>
+			<hr>	<hr>
+		<label id='bhue' for='bh'></label>
+		<input id='bh' min="0" max="360" value="0" type="range"/>
+	<hr>
+		<label id='bsaturate' for='bs'></label>
+		<input id='bs' min="0" max="200" value="100" type="number"/>
+	<hr>
+		<label id='bbrightness' for='bl'></label>
+		<input id='bl' min="0" max="200" value="70" type="number"/>
+	</form>
+	
+	<form id='langs' class='message' onchange='$$.QSF("html").style="--lang: " + this.elements.lang.value'><hr>
+	<label id='for_en' for="en">en</label>
+	<label id='for_ru' for="ru">ru</label>
 	</form>
 </div>
 
