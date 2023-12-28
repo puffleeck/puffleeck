@@ -1,7 +1,9 @@
-<html>
-<head>
+<html><head>
 <meta charset='utf-8'>
 <title>puffleeck SPA</title>
+<link rel="stylesheet" href="core.css">
+<link rel="stylesheet" href="langpack.css">
+<script src="core.js"></script>
 <style>
 :root{
 	--bg-dark: #77c;
@@ -42,7 +44,7 @@ body, .tabs { padding: 0; margin: 0; background: var(--bg-light);}
 	#menu > *:hover{background: rgba(256, 256, 256, 0.5);}
 
 	
-.style1, .style2, .style3, .style4, .style5{
+.style1, .style2, .style3, .style4{
 	border: 1px #000 solid;
 	padding: 5px;
 	margin: 3px;
@@ -140,8 +142,10 @@ reStyler: function()
 	}
 };
 </script>
-</head>
-<body>
+</head><body id='b'>
+<input type="radio" id="en" name="lang" checked/>
+<input type="radio" id="ru" name="lang"/>
+
 <div id='menu' class='NoPrint'>
 	<a href='#'>puffleeck spa</a>
 	<a href='#cards'>cards</a>
@@ -175,11 +179,11 @@ reStyler: function()
 
 		
 	<select id='added_style' onchange='$$.CCN("sample", this.value);'>
+	<option>message</option>
 	<option>style1</option>
 	<option>style2</option>
 	<option>style3</option>
 	<option>style4</option>
-	<option>style5</option>
 	</select>
 	
 	<input tabindex='4' type='text' id='num' placeholder='num'/>
@@ -188,11 +192,11 @@ reStyler: function()
 	<hr/>
 
 	<select id='rest'>
+	<option>message</option>
 	<option>style1</option>
 	<option>style2</option>
 	<option>style3</option>
 	<option>style4</option>
-	<option>style5</option>
 	</select>
 
 	<select id='cast_sel'>
@@ -362,6 +366,4 @@ reStyler: function()
 	<label id='for_ru' for="ru">ru</label>
 	</form>
 </div>
-
-</body>
-</html>
+</body></html>
