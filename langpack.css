@@ -1,0 +1,41 @@
+:root{--home: 'puffleeck';}
+#to_home:after							{content: var(--home)}
+
+	#en:checked ~ *{
+--cards:			'cards';
+--display:			'display';
+--settings:			'settings';
+--info:				'information';
+--hue:				'color selector';
+--saturate:			'saturate';
+--brightness:		'brightness';
+--day:				'day style';
+--night:			'night style';
+--langs:			'language selector';
+	}
+
+	#ru:checked ~ *{
+--cards:			'карточки';
+--display:			'дисплей';
+--settings:			'настройки';
+--info:				'информация';
+--hue:				'Hue`верть почти как в старом, добром AIMP только круче :3';
+--saturate:			'насыщенность';
+--brightness:		'яркость';
+--day:				'дневная тема';
+--night:			'ночная тема';
+--langs:			'выбор языка';
+	}
+
+	
+#to_cards:after							{content: var(--cards)}
+#to_display:after						{content: var(--display)}
+#to_settings:after						{content: var(--settings)}
+#to_donate:after						{content: var(--donate)}
+#to_info:after							{content: var(--info)}
+#hue:after								{content:var(--hue)}
+#saturate:after							{content:var(--saturate)}
+#brightness:after						{content:var(--brightness)}
+#day:after								{content: var(--day)}
+#night:after							{content: var(--night)}
+#langs:before							{content: var(--langs)}
