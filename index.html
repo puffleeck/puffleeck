@@ -1,157 +1,18 @@
-<html><head>
-<meta charset='utf-8'>
+<html><head><meta charset='utf-8'>
 <title>puffleeck SPA</title>
 <link rel="stylesheet" href="core.css">
 <link rel="stylesheet" href="langpack.css">
 <script src="core.js"></script>
-<style>
-:root{
-	--bg-dark: #77c;
-	--bg-light: #bbf;
-}
-
-@media (display-mode: fullscreen){#display:target > #fill{position: absolute; height:100%; width: 100%; top:0; z-index:777}}
-.snippet{
-	visibility: visible;
-	display: block;
-	white-space: pre;
-	overflow-x: scroll;
-	padding: 5px;
-	}
-body, .tabs { padding: 0; margin: 0; background: var(--bg-light);}
-@media print{#menu, .tabs > :not(#print){display: none;}}
-@media screen, mobile, tv, tablet, handheld, projection{
-	.tabs{display: none;}
-	.tabs:target{display: block;width: 100%;}
-	#cards.tabs:target{
-		display: grid;
-		grid-template-columns: 1fr 3fr;
-		grid-template-rows: 5em 1fr;
-		height: 95%;
-		}
-}
-	#cards_menu					{grid-row: 1; grid-column: 1 / 3; background: #bbb}
-	#tpl						{grid-row: 2; grid-column: 1; border-right: 2px black solid}
-	#Print						{grid-row: 2; grid-column: 2; overflow-x: scroll}
-
-	#menu{
-		display: grid;
-		grid-auto-flow: column;
-		text-align: center;
-		background: var(--bg-light);
-		}
-	#menu > *{border-radius: .5em; margin: .2em}
-	#menu > *:hover{background: rgba(256, 256, 256, 0.5);}
-
-	
-.style1, .style2, .style3, .style4{
-	border: 1px #000 solid;
-	padding: 5px;
-	margin: 3px;
-	text-align: center;
-	font-size: 20px;
-	}
-		
-	.p0{display: flex;}
-	.p1{display: block;}
-	.p2{display: block;} .p2 > *{display: inline-block;}
-	.p3{display: grid; grid-template-columns: repeat(1, 1fr);}
-	.p4{display: grid; grid-template-columns: repeat(2, 1fr);}
-	.p5{display: grid; grid-template-columns: repeat(3, 1fr);}
-	.p6{display: grid; grid-template-columns: repeat(4, 1fr);}
-	.p7{display: grid; grid-template-columns: repeat(5, 1fr);}
-	.p8{display: grid; grid-template-columns: repeat(6, 1fr);}
-	.p9{display: grid; grid-template-columns: repeat(7, 1fr);}
-	.p10{display: grid; grid-template-columns: repeat(8, 1fr);}
-	.p11{
-		display: grid;
-		grid-template-columns: repeat(2400, 1fr);
-		grid-auto-flow: dense;
-		overflow-x: auto;
-	} /* Gantt chart | диаграмма Ганта */
-
-	.horizont{display: block flex; overflow-x: auto}
-	.message{
-		background: var(--bg-light);
-		margin: 1em;
-		padding: 1em;
-		border-radius: 1em;
-		box-shadow: 0 5px 15px rgba(0,0,0, .5);
-		transition: all ease-out 0.1s;
-	}
-	#info .message:hover{
-		transform: scale(1.1);
-		box-shadow: 0 5px 15px rgba(0,0,0, .7);
-	}
-</style>
-<script>
-var $$ = {
-GI: function(id) {return document.getElementById(id)},
-GN: function(name) {return document.getElementsByName(name)},
-QSA: function(css) {return document.querySelectorAll(css)},
-QSF: function(css) {return document.querySelector(css)},
-GTN: function(elem, tag) {return elem.getElementsByTagName(tag)},
-GCN: function(elem, Nclass) {return elem.getElementsByClassName(Nclass)}, // ! IE8-
-CE: function(tagN) {return document.createElement(tagN)},
-CTN: function(text) {return document.createTextNode(text)},
-AC: function (elem, newElem) {return elem.appendChild(newElem);},
-IB: function (elem, newElem, nextElem) {return elem.insertBefore(newElem, nextElem);},
-RC: function (elem, delElem) {elem.removeChild(delElem);},
-CN: function (cloneElem, childs) {cloneElem.cloneNode(childs);},
-
-i: 0,
-sum: 0,
-clear: function(){this.GI('Print').innerHTML = '';},
-del: function(id){this.RC(this.GI('Print'), this.GI(id));},
-CCN: function(target, name){this.GI(target).className=name;},
-new_add: function(a)
-	{
-		var print = this.GI('Print');
-		var t1 = this.GI('t1').value;
-		var t2 = this.GI('t2').value;
-		var t3 = this.GI('t3').value;
-		var ts = this.GI('ts').value;
-		var te = this.GI('te').value;
-		var num = (a ? a : this.GI('num').value);
-		while(this.i != num)
-		{
-			var nDiv = this.CE('div');
-			nDiv.id = this.sum;
-			nDiv.className = this.GI('added_style').value;
-			this.AC(print, nDiv);
-			nDiv.outerHTML ='<div id="' + this.sum + '" class="' + nDiv.className + '"' +
-				(a ? ' style="grid-row: 1; grid-column: ' + this.i + '0' + (a && this.i==0? 1:0) + ' / ' + (this.i + 1) + '00"' : '') +
-				(this.GI('d').value == 'p11' ? ` style="grid-column: ${ts} / ${te}"` : '') +
-				' onclick="javascript:$$.del(' + this.sum + ')">' +
-				'<x class="t1">' + (a ? this.i : t1) + '</x><br/>' +
-				'<x class="t2">' + (a ? '' : t2) + '</x><br/>' +
-				'<x class="t3">' + (a ? '' : t3) + '</x>';
-			this.i++;
-			this.sum++;
-		}
-		this.i = 0;
-	},
-reStyler: function()
-	{
-	this.GI("styler").innerHTML +=
-		'\n.' + this.GI('rest').value + ' > ' +
-		'.' + this.GI('cast_sel').value + '{' +
-		'color: ' + this.GI('cast_color').value + ';' +
-		'background-color: ' + this.GI('cast_bg_color').value + ';' +
-		'}';
-	}
-};
-</script>
 </head><body id='b'>
 <input type="radio" id="en" name="lang" checked/>
 <input type="radio" id="ru" name="lang"/>
 
 <div id='menu' class='NoPrint'>
-	<a href='#'>puffleeck spa</a>
-	<a href='#cards'>cards</a>
-	<a href='#display'>display</a>
-	<a href='#info'>info</a>
-	<a href='#settings'>settings</a>
+<a id='to_home' href='#'></a>
+<a id='to_cards' href='#cards'></a>
+<a id='to_display' href='#display'></a>
+<a id='to_info' href='#info'></a>
+<a id='to_settings' href='#settings'></a>
 </div>
 
 <div id='cards' class='tabs'>
@@ -306,11 +167,11 @@ reStyler: function()
 		</fieldset>
 
 		<fieldset class='message'>
-		<legend>далёкое далёко</legend>
-		<p>-</p>
-		<p>-</p>
-		<p>-</p>
-		<p>-</p>
+		<legend>28.12.2023</legend>
+		<p>fix custom</p>
+		<p>extract js/css</p>
+		<p>inject switch lang`s</p>
+		<p>add .message to #cards</p>
 		</fieldset>
 	</fieldset>
 </div>
