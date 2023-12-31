@@ -47,23 +47,28 @@ body, .tabs { padding: 0; margin: 0; background: var(--bg-light);}
 	font-size: 20px;
 	}
 		
-	.p0{display: flex;}
-	.p1{display: block;}
-	.p2{display: block;} .p2 > *{display: inline-block;}
-	.p3{display: grid; grid-template-columns: repeat(1, 1fr);}
-	.p4{display: grid; grid-template-columns: repeat(2, 1fr);}
-	.p5{display: grid; grid-template-columns: repeat(3, 1fr);}
-	.p6{display: grid; grid-template-columns: repeat(4, 1fr);}
-	.p7{display: grid; grid-template-columns: repeat(5, 1fr);}
-	.p8{display: grid; grid-template-columns: repeat(6, 1fr);}
-	.p9{display: grid; grid-template-columns: repeat(7, 1fr);}
-	.p10{display: grid; grid-template-columns: repeat(8, 1fr);}
-	.p11{
+	.f{display: flex;}
+	.b{display: block;}
+	.b-ib{display: block;} .b-ib > *{display: inline-block;}
+	.g1c{display: grid; grid-template-columns: repeat(1, 1fr);}
+	.g2c{display: grid; grid-template-columns: repeat(2, 1fr);}
+	.g3c{display: grid; grid-template-columns: repeat(3, 1fr);}
+	.g4c{display: grid; grid-template-columns: repeat(4, 1fr);}
+	.g5c{display: grid; grid-template-columns: repeat(5, 1fr);}
+	.g6c{display: grid; grid-template-columns: repeat(6, 1fr);}
+	.g7c{display: grid; grid-template-columns: repeat(7, 1fr);}
+	.g8c{display: grid; grid-template-columns: repeat(8, 1fr);}
+	.dg{
 		display: grid;
 		grid-template-columns: repeat(2400, 1fr);
 		grid-auto-flow: dense;
 		overflow-x: auto;
 	} /* Gantt chart | диаграмма Ганта */
+	
+	.uii{grid-column: 1}
+	.uil{grid-column: span 2 / 4}
+	.bi{grid-column: 4}
+	#sf{ grid-auto-flow: dense; grid-gap: .5em; padding: 3em; margin: 5em;}
 
 	.horizont{display: block flex; overflow-x: auto}
 	.message{
