@@ -18,18 +18,18 @@
 <div id='cards' class='tabs'>
 	<div id='cards_menu' class='NoPrint'>
 	<select id='d' onchange='$$.CCN("Print", this.value); if(this.value == "p11"){$$.new_add(24)}'>
-	<option value='p0'>display: flex</option>
-	<option value='p1'>display: block</option>
-	<option value='p2'>display: block{inline-block}</option>
-	<option value='p3'>display: grid; repeat(1, 1fr);</option>
-	<option value='p4'>display: grid; repeat(2, 1fr);</option>
-	<option value='p5'>display: grid; repeat(3, 1fr);</option>
-	<option value='p6'>display: grid; repeat(4, 1fr);</option>
-	<option value='p7'>display: grid; repeat(5, 1fr);</option>
-	<option value='p8'>display: grid; repeat(6, 1fr);</option>
-	<option value='p9'>display: grid; repeat(7, 1fr);</option>
-	<option value='p10'>display: grid; repeat(8, 1fr);</option>
-	<option value='p11'>Gantt chart | диаграмма Ганта</option>
+	<option value='f'>display: flex</option>
+	<option value='b'>display: block</option>
+	<option value='b-ib'>display: block{inline-block}</option>
+	<option value='g1c'>display: grid; repeat(1, 1fr);</option>
+	<option value='g2c'>display: grid; repeat(2, 1fr);</option>
+	<option value='g3c'>display: grid; repeat(3, 1fr);</option>
+	<option value='g4c'>display: grid; repeat(4, 1fr);</option>
+	<option value='g5c'>display: grid; repeat(5, 1fr);</option>
+	<option value='g6c'>display: grid; repeat(6, 1fr);</option>
+	<option value='g7c'>display: grid; repeat(7, 1fr);</option>
+	<option value='g8c'>display: grid; repeat(8, 1fr);</option>
+	<option value='dg'>Gantt chart | диаграмма Ганта</option>
 	</select>
 
 	<input tabindex='1' type='text' id='t1' placeholder='header(.t1)' oninput='$$.GI("st1").innerHTML=this.value;'/>
@@ -198,33 +198,26 @@
 </div>
 
 <div id='settings' class='tabs'>
-	<form class='message' oninput='$$.GI("b").style=`filter: hue-rotate(${this.children.h.value}deg) saturate(${this.children.s.value}%) brightness(${this.children.l.value}%) invert(${this.elements.i.value}%); background: hsl(${this.children.bh.value}deg, ${this.children.bs.value}%, ${this.children.bl.value}%);`;'
-	>
-		<label id='hue' for='h'></label>
-		<input id='h' min="0" max="360" value="0" type="range"/>
-	<hr>
-		<label id='saturate' for='s'></label>
-		<input id='s' min="0" max="200" value="100" type="number"/>
-	<hr>
-		<label id='brightness' for='l'></label>
-		<input id='l' min="0" max="200" value="100" type="number"/>
-	<hr>
+	<form id='sf' class='message g5c' oninput='$$.GI("b").style=`filter: hue-rotate(${this.children.h.value}deg) saturate(${this.children.s.value}%) brightness(${this.children.l.value}%) invert(${this.elements.i.value}%); background: hsl(${this.children.bh.value}deg, ${this.children.bs.value}%, ${this.children.bl.value}%);`;'>
+		<input class='uii' id='h' min="0" max="360" value="0" type="range"/>
+		<input class='uii' id='s' min="0" max="200" value="100" type="number"/>
+		<input class='uii' id='l' min="0" max="200" value="100" type="number"/>
+
+		<label class='uil' id='hue' for='h'></label>
+		<label class='uil' id='saturate' for='s'></label>
+		<label class='uil' id='brightness' for='l'></label>
+
+		<input class='bi' id='bh' min="0" max="360" value="0" type="range"/>
+		<input class='bi' id='bs' min="0" max="200" value="100" type="number"/>
+		<input class='bi' id='bl' min="0" max="200" value="70" type="number"/>
+
+
+		<b id='langs'></b>
+		<label id='for_en' for="en">en</label>
+		<label id='for_ru' for="ru">ru</label>
+		
 		<label id='night'><input name='i' value="100" type="radio"/></label>
 		<label id='day'><input checked name='i' value="0" type="radio"/></label>
-			<hr>	<hr>
-		<label id='bhue' for='bh'></label>
-		<input id='bh' min="0" max="360" value="0" type="range"/>
-	<hr>
-		<label id='bsaturate' for='bs'></label>
-		<input id='bs' min="0" max="200" value="100" type="number"/>
-	<hr>
-		<label id='bbrightness' for='bl'></label>
-		<input id='bl' min="0" max="200" value="70" type="number"/>
-	</form>
-	
-	<form id='langs' class='message' onchange='$$.QSF("html").style="--lang: " + this.elements.lang.value'><hr>
-	<label id='for_en' for="en">en</label>
-	<label id='for_ru' for="ru">ru</label>
 	</form>
 </div>
 </body></html>
