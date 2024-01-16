@@ -25,6 +25,7 @@ new_add: function(a)
 		var t3 = this.GI('t3').value;
 		var ts = this.GI('ts').value;
 		var te = this.GI('te').value;
+		var d = this.GI('d').value;
 		var num = (a ? a : this.GI('num').value);
 		while(this.i != num)
 		{
@@ -34,7 +35,7 @@ new_add: function(a)
 			this.AC(print, nDiv);
 			nDiv.outerHTML ='<div id="' + this.sum + '" class="' + nDiv.className + '"' +
 				(a ? ' style="grid-row: 1; grid-column: ' + this.i + '0' + (a && this.i==0? 1:0) + ' / ' + (this.i + 1) + '00"' : '') +
-				(this.GI('d').value == 'p11' ? ` style="grid-column: ${ts} / ${te}"` : '') +
+				(d == 'dg' || d == 'diagram' ? 'style="grid-column: ' + (ts ? ts : 50) + (d == 'diagram' ? '; grid-row: ' : ' / ') + te + ';"': '') +
 				' onclick="javascript:$$.del(' + this.sum + ')">' +
 				'<x class="t1">' + (a ? this.i : t1) + '</x><br/>' +
 				'<x class="t2">' + (a ? '' : t2) + '</x><br/>' +
