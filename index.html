@@ -17,7 +17,7 @@
 
 <div id='cards' class='tabs'>
 	<div id='cards_menu' class='NoPrint'>
-	<select id='d' onchange='$$.CCN("Print", this.value); if(this.value == "p11"){$$.new_add(24)}'>
+	<select id='d' onchange='$$.CCN("Print", this.value); if(this.value == "dg"){$$.new_add(24)}'>
 	<option value='f'>display: flex</option>
 	<option value='b'>display: block</option>
 	<option value='b-ib'>display: block{inline-block}</option>
@@ -30,13 +30,14 @@
 	<option value='g7c'>display: grid; repeat(7, 1fr);</option>
 	<option value='g8c'>display: grid; repeat(8, 1fr);</option>
 	<option value='dg'>Gantt chart | диаграмма Ганта</option>
+	<option value='diagram'>grid \ diagram - 100</option>
 	</select>
 
 	<input tabindex='1' type='text' id='t1' placeholder='header(.t1)' oninput='$$.GI("st1").innerHTML=this.value;'/>
 	<input tabindex='2' type='text' id='t2' placeholder='text(.t2)' oninput='$$.GI("st2").innerHTML=this.value;'/>
 	<input tabindex='3' type='text' id='t3' placeholder='text(.t3)' oninput='$$.GI("st3").innerHTML=this.value;'/>
-	<input tabindex='4' type='text' id='ts' placeholder='time start'/>
-	<input tabindex='4' type='text' id='te' placeholder='time end'/>
+	<input tabindex='4' type='text' id='ts' placeholder='time start / column'/>
+	<input tabindex='4' type='text' id='te' placeholder='time end / row'/>
 
 		
 	<select id='added_style' onchange='$$.CCN("sample", this.value);'>
