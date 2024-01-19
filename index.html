@@ -7,7 +7,7 @@
 <input type="radio" id="en" name="lang" checked/>
 <input type="radio" id="ru" name="lang"/>
 
-<div id='menu' class='NoPrint'>
+<div id='menu'>
 <a id='to_home' href='#'></a>
 <a id='to_cards' href='#cards'></a>
 <a id='to_display' href='#display'></a>
@@ -16,7 +16,7 @@
 </div>
 
 <div id='cards' class='tabs'>
-	<div id='cards_menu' class='NoPrint'>
+	<div id='cards_menu'>
 	<select id='d' onchange='$$.CCN("Print", this.value); if(this.value == "dg"){$$.new_add(24)}'>
 	<option value='b'>display: block</option>
 	<option value='f'>display: flex</option>
@@ -72,7 +72,7 @@
 	<input type='button' value='ok' onclick='$$.reStyler();'/>
 	</div>
 
-	<div id='tpl' class='NoPrint'>
+	<div id='tpl'>
 	<div id="sample" class="message">
 	<x id="st1" class="t1"></x><br>
 	<x id="st2" class="t2"></x><br>
@@ -244,7 +244,7 @@
 		<label id='for_ru' for="ru">ru</label>
 		
 		<label id='night'><input name='i' value="100" type="radio"/></label>
-		<label id='day'><input name='i' value="0" type="radio"/></label>
+		<label id='day'><input checked name='i' value="0" type="radio"/></label>
 	</form>
 </div>
 </div></body></html>
