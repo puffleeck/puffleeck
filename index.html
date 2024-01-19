@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="core.css">
 <link rel="stylesheet" href="langpack.css">
 <script src="core.js"></script>
-</head><body id='b'>
+</head><body id='b' class='full'><div class='full'>
 <input type="radio" id="en" name="lang" checked/>
 <input type="radio" id="ru" name="lang"/>
 
@@ -18,8 +18,8 @@
 <div id='cards' class='tabs'>
 	<div id='cards_menu' class='NoPrint'>
 	<select id='d' onchange='$$.CCN("Print", this.value); if(this.value == "dg"){$$.new_add(24)}'>
-	<option value='f'>display: flex</option>
 	<option value='b'>display: block</option>
+	<option value='f'>display: flex</option>
 	<option value='b-ib'>display: block{inline-block}</option>
 	<option value='g1c'>display: grid; repeat(1, 1fr);</option>
 	<option value='g2c'>display: grid; repeat(2, 1fr);</option>
@@ -230,7 +230,7 @@
 </div>
 
 <div id='settings' class='tabs'>
-	<form id='sf' class='message g5c' oninput='$$.GI("b").style=`filter: hue-rotate(${this.children.h.value}deg) saturate(${this.children.s.value}%) brightness(${this.children.l.value}%) invert(${this.elements.i.value}%); background: hsl(${this.children.bh.value}deg, ${this.children.bs.value}%, ${this.children.bl.value}%);`;'>
+	<form id='sf' class='message g4c' oninput='$$.GI("b").style=`filter: hue-rotate(${this.children.h.value}deg) saturate(${this.children.s.value}%) brightness(${this.children.l.value}%) invert(${this.elements.i.value}%);`;'>
 		<input class='uii' id='h' min="0" max="360" value="0" type="range"/>
 		<input class='uii' id='s' min="0" max="200" value="100" type="number"/>
 		<input class='uii' id='l' min="0" max="200" value="100" type="number"/>
@@ -239,17 +239,12 @@
 		<label class='uil' id='saturate' for='s'></label>
 		<label class='uil' id='brightness' for='l'></label>
 
-		<input class='bi' id='bh' min="0" max="360" value="0" type="range"/>
-		<input class='bi' id='bs' min="0" max="200" value="100" type="number"/>
-		<input class='bi' id='bl' min="0" max="200" value="70" type="number"/>
-
-
 		<b id='langs'></b>
 		<label id='for_en' for="en">en</label>
 		<label id='for_ru' for="ru">ru</label>
 		
 		<label id='night'><input name='i' value="100" type="radio"/></label>
-		<label id='day'><input checked name='i' value="0" type="radio"/></label>
+		<label id='day'><input name='i' value="0" type="radio"/></label>
 	</form>
 </div>
-</body></html>
+</div></body></html>
