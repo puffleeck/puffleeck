@@ -25,11 +25,6 @@
 		height: 90%;
 		}
 }
-#Print{
-	grid-row: 2;
-	grid-column: 2;
-	overflow-x: auto
-	}
 #cards_menu{
 	grid-row: 1;
 	grid-column: 1 / 3;
@@ -39,8 +34,13 @@
 #tpl{
 	grid-row: 2;
 	grid-column: 1;
-	border-right: 2px black solid;
+	border-right: 3px #55a solid;
 	overflow-y: auto;
+	}
+#Print{
+	grid-row: 2;
+	grid-column: 2;
+	overflow-x: auto
 	}
 #menu{
 	display: grid;
@@ -54,6 +54,7 @@
 	display: block;
 	white-space: pre;
 	min-height: 3em;
+	border: 3px solid #339;
 	}
 .style1, .style2, .style3, .style4{
 	border: 1px #000 solid;
@@ -63,7 +64,8 @@
 	font-size: 20px;
 	border-radius: 15px;
 	}
-		
+.snippet:focus{border: 3px solid #99f; box-shadow: 0 7 10px 5px blue;}
+
 	.f{display: flex;}
 	.b{display: block;}
 	.b-ib{display: block;} .b-ib > *{display: inline-block;}
@@ -82,24 +84,27 @@
 		overflow-x: auto;
 	} /* Gantt chart | диаграмма Ганта */
 	.diagram{display: grid; grid-template-columns: repeat(100, 1fr);}
-	
-	.uii{grid-column: 1}
-	.uil{grid-column: span 2 / 4}
-	#sf{ grid-auto-flow: dense; grid-gap: .5em; padding: 3em; margin: 5em;}
 
-	.horizont{display: block flex; overflow-x: auto}
-	.message, #menu > *{
-		animation: bg_dark 360s both paused;
-		margin: 15px;
-		padding: 10px;
-		border-radius: 15px;
-		box-shadow: 0 7px 10px 5px rgba(0,0,0, .4);
-		transition: all ease-out 0.1s;
-	}
-	#info .message:hover, #menu > *:hover{
-		transform: scale(1.1);
-		box-shadow: 0 7px 10px 5px rgba(0,0,0, .6);
-		background: rgba(256, 256, 256, 0.4);
-	}
-	#tpl > .message{border: 3px solid #005;}
-	#tpl > .message:focus{border: 3px solid #00f; box-shadow: 0 7 10px 5px blue;}
+.t1{font-size: 1.4em;}
+.uii{grid-column: 1}
+.uil{grid-column: span 2 / 4}
+#sf{ grid-auto-flow: dense; grid-gap: .5em; padding: 3em; margin: 5em;}
+.horizont{display: block flex; overflow-x: auto}
+.message2{animation: bg_dark 360s both -60s paused;}
+.message3{animation: bg_dark 360s both -120s paused;}
+.message4{animation: bg_dark 360s both -180s paused;}
+.message5{animation: bg_dark 360s both -240s paused;}
+.message6{animation: bg_dark 360s both -300s paused;}
+.message, .message2, .message3, .message4, .message5, .message6, #menu > *{
+	animation: bg_dark 360s both paused;
+	margin: 15px;
+	padding: 10px;
+	border-radius: 15px;
+	box-shadow: 0 7px 10px 5px rgba(0,0,0, .4);
+	transition: all ease-out 0.1s;
+}
+#info .message:hover, #menu > *:hover{
+	transform: scale(1.1);
+	box-shadow: 0 7px 10px 5px rgba(0,0,0, .6);
+	background: rgba(256, 256, 256, 0.4);
+}
