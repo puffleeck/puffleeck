@@ -90,11 +90,6 @@
 .uil{grid-column: span 2 / 4}
 #sf{ grid-auto-flow: dense; grid-gap: .5em; padding: 3em; margin: 5em;}
 .horizont{display: block flex; overflow-x: auto}
-.message2{animation: bg_dark 360s both -60s paused;}
-.message3{animation: bg_dark 360s both -120s paused;}
-.message4{animation: bg_dark 360s both -180s paused;}
-.message5{animation: bg_dark 360s both -240s paused;}
-.message6{animation: bg_dark 360s both -300s paused;}
 .message, .message2, .message3, .message4, .message5, .message6, #menu > *{
 	animation: bg_dark 360s both paused;
 	margin: 15px;
@@ -103,6 +98,11 @@
 	box-shadow: 0 7px 10px 5px rgba(0,0,0, .4);
 	transition: all ease-out 0.1s;
 }
+.message2{animation: bg_dark 360s both -60s paused;}
+.message3{animation: bg_dark 360s both -120s paused;}
+.message4{animation: bg_dark 360s both -180s paused;}
+.message5{animation: bg_dark 360s both -240s paused;}
+.message6{animation: bg_dark 360s both -300s paused;}
 #info .message:hover, #menu > *:hover{
 	transform: scale(1.1);
 	box-shadow: 0 7px 10px 5px rgba(0,0,0, .6);
