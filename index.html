@@ -17,26 +17,6 @@
 
 <div id='cards' class='tabs'>
 	<div id='tpl'>
-	<div>
-		<select id='rest'>
-		<option>message</option>
-		<option>style1</option>
-		<option>style2</option>
-		<option>style3</option>
-		<option>style4</option>
-		</select>
-
-		<select id='cast_sel'>
-		<option>t1</option>
-		<option>t2</option>
-		<option>t3</option>
-		</select>
-
-		<input type='color' id='cast_color' name='cast_color'/>
-		<input type='color' id='cast_bg_color' name='cast_bg_color' value='#ffffff'/>
-		<input type='button' value='ok' onclick='$$.reStyler();'/>
-	</div>
-
 	<div class='g2c message'>
 		<input tabindex='1' type='text' id='t1' placeholder='header(.t1)' oninput='$$.GI("st1").innerHTML=this.value;'/>
 		<select id='added_style' onchange='$$.CCN("sample", this.value);'>
@@ -83,21 +63,42 @@
 		</select>
 		<input tabindex='6' type='button' onclick="$$.clear();" value='clear' />
 		
-		<input type='button' onclick='$$.GI("canvas").style="background:red;"' value='red'>
-		<input type='button' onclick='$$.GI("canvas").style="background: white;"' value='white'>
+		<input type='button' onclick='$$.GI("Print").style="background:red;"' value='red'>
+		<input type='button' onclick='$$.GI("Print").style="background: white;"' value='white'>
 		
-		<input type='button' onclick='$$.GI("canvas").style="background: green;"' value='green'>
-		<input type='button' onclick='$$.GI("canvas").style="background: lightgray;"' value='light gray'>
+		<input type='button' onclick='$$.GI("Print").style="background: green;"' value='green'>
+		<input type='button' onclick='$$.GI("Print").style="background: lightgray;"' value='light gray'>
 			
-		<input type='button' onclick='$$.GI("canvas").style="background: blue;"' value='blue'>
-		<input type='button' onclick='$$.GI("canvas").style="background: gray;"' value='gray'>
+		<input type='button' onclick='$$.GI("Print").style="background: blue;"' value='blue'>
+		<input type='button' onclick='$$.GI("Print").style="background: gray;"' value='gray'>
 		
-		<input type='color' onchange='$$.GI("canvas").style="background: " + this.value;'>
-		<input type='button' onclick='$$.GI("canvas").style="background: black;"' value='black'>
+		<input type='color' onchange='$$.GI("Print").style="background: " + this.value;'>
+		<input type='button' onclick='$$.GI("Print").style="background: black;"' value='black'>
 	</div>
 
-	<script class='snippet message' contenteditable>/*script*/</script>
-	<style class='snippet message' id='styler' contenteditable>/*style*/</style>
+		<div class='message'>
+			<select id='rest'>
+			<option>message</option>
+			<option>message2</option>
+			<option>message3</option>
+			<option>message4</option>
+			<option>message5</option>
+			<option>message6</option>
+			</select>
+
+			<select id='cast_sel'>
+			<option>t1</option>
+			<option>t2</option>
+			<option>t3</option>
+			</select>
+			<input type='button' style='grid-column: span: 2' value='ok' onclick='$$.reStyler();'/><hr>
+			<input type='color' id='cast_color' name='cast_color'/>
+			<input type='color' id='cast_bg_color' name='cast_bg_color' value='#ffffff'/>
+		</div>
+
+
+		<script class='snippet message' contenteditable>/*script*/</script>
+		<style class='snippet message' id='styler' contenteditable>/*style*/</style>
 	</div>
 
 	<div id='Print'></div>
