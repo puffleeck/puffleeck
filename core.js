@@ -37,9 +37,9 @@ new_add: function(a)
 				(a ? ' style="grid-row: 1; grid-column: ' + this.i + '0' + (a && this.i==0? 1:0) + ' / ' + (this.i + 1) + '00"' : '') +
 				(d == 'dg' || d == 'diagram' ? 'style="grid-column: ' + (ts ? ts : 50) + (d == 'diagram' ? '; grid-row: ' : ' / ') + te + ';"': '') +
 				' onclick="javascript:$$.del(' + this.sum + ')">' +
-				'<x class="t1">' + (a ? this.i : t1) + '</x><br/>' +
-				'<x class="t2">' + (a ? '' : t2) + '</x><br/>' +
-				'<x class="t3">' + (a ? '' : t3) + '</x>';
+				'<b class="t1">' + (a ? this.i : t1) + '</b><hr/>' +
+				'<i class="t2">' + (a ? '' : t2) + '</i><hr/>' +
+				'<i class="t3">' + (a ? '' : t3) + '</i>';
 			this.i++;
 			this.sum++;
 		}
