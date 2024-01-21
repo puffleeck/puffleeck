@@ -21,23 +21,14 @@
 	#cards:target{
 		display: grid;
 		grid-template-columns: 1fr 3fr;
-		grid-template-rows: 5em 1fr;
 		height: 90%;
 		}
 	#Print{
-		grid-row: 2;
 		grid-column: 2;
 		overflow-x: auto;
 		}
 }
-#cards_menu{
-	grid-row: 1;
-	grid-column: 1 / 3;
-	animation: bg_dark 360s both paused;
-	padding: 2px;
-	}
 #tpl{
-	grid-row: 2;
 	grid-column: 1;
 	border-right: 3px #55a solid;
 	overflow-y: auto;
@@ -56,19 +47,12 @@
 	min-height: 3em;
 	border: 3px solid #339;
 	}
-.style1, .style2, .style3, .style4{
-	border: 1px #000 solid;
-	padding: 5px;
-	margin: 3px;
-	text-align: center;
-	font-size: 20px;
-	border-radius: 15px;
-	}
 .snippet:focus{border: 3px solid #99f; box-shadow: 0 7 10px 5px blue;}
 
 	.f{display: flex;}
 	.b{display: block;}
 	.b-ib{display: block;} .b-ib > *{display: inline-block;}
+	.gaf{display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));}
 	.g1c{display: grid; grid-template-columns: repeat(1, 1fr);}
 	.g2c{display: grid; grid-template-columns: repeat(2, 1fr);}
 	.g3c{display: grid; grid-template-columns: repeat(3, 1fr);}
@@ -76,7 +60,6 @@
 	.g5c{display: grid; grid-template-columns: repeat(5, 1fr);}
 	.g6c{display: grid; grid-template-columns: repeat(6, 1fr);}
 	.g7c{display: grid; grid-template-columns: repeat(7, 1fr);}
-	.g8c{display: grid; grid-template-columns: repeat(8, 1fr);}
 	.dg{
 		display: grid;
 		grid-template-columns: repeat(2400, 1fr);
