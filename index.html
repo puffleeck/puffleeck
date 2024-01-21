@@ -16,69 +16,86 @@
 </div>
 
 <div id='cards' class='tabs'>
+	<div id='tpl'>
 	<div id='cards_menu'>
-	<select id='d' onchange='$$.CCN("Print", this.value); if(this.value == "dg"){$$.new_add(24)}'>
-	<option value='b'>display: block</option>
-	<option value='f'>display: flex</option>
-	<option value='b-ib'>display: block{inline-block}</option>
-	<option value='g1c'>display: grid; repeat(1, 1fr);</option>
-	<option value='g2c'>display: grid; repeat(2, 1fr);</option>
-	<option value='g3c'>display: grid; repeat(3, 1fr);</option>
-	<option value='g4c'>display: grid; repeat(4, 1fr);</option>
-	<option value='g5c'>display: grid; repeat(5, 1fr);</option>
-	<option value='g6c'>display: grid; repeat(6, 1fr);</option>
-	<option value='g7c'>display: grid; repeat(7, 1fr);</option>
-	<option value='g8c'>display: grid; repeat(8, 1fr);</option>
-	<option value='dg'>Gantt chart | диаграмма Ганта</option>
-	<option value='diagram'>grid \ diagram - 100</option>
-	</select>
+		<select id='rest'>
+		<option>message</option>
+		<option>style1</option>
+		<option>style2</option>
+		<option>style3</option>
+		<option>style4</option>
+		</select>
 
-	<input tabindex='1' type='text' id='t1' placeholder='header(.t1)' oninput='$$.GI("st1").innerHTML=this.value;'/>
-	<input tabindex='2' type='text' id='t2' placeholder='text(.t2)' oninput='$$.GI("st2").innerHTML=this.value;'/>
-	<input tabindex='3' type='text' id='t3' placeholder='text(.t3)' oninput='$$.GI("st3").innerHTML=this.value;'/>
-	<input tabindex='4' type='text' id='ts' placeholder='time start / column'/>
-	<input tabindex='4' type='text' id='te' placeholder='time end / row'/>
+		<select id='cast_sel'>
+		<option>t1</option>
+		<option>t2</option>
+		<option>t3</option>
+		</select>
+
+		<input type='color' id='cast_color' name='cast_color'/>
+		<input type='color' id='cast_bg_color' name='cast_bg_color' value='#ffffff'/>
+		<input type='button' value='ok' onclick='$$.reStyler();'/>
+	</div>
+
+	<div class='g2c message'>
+		<input tabindex='1' type='text' id='t1' placeholder='header(.t1)' oninput='$$.GI("st1").innerHTML=this.value;'/>
+		<select id='added_style' onchange='$$.CCN("sample", this.value);'>
+			<option>message</option>
+			<option>message2</option>
+			<option>message3</option>
+			<option>message4</option>
+			<option>message5</option>
+			<option>message6</option>
+		</select>
+		
+		<input tabindex='2' type='text' id='t2' placeholder='text(.t2)' oninput='$$.GI("st2").innerHTML=this.value;'/>
+		<input tabindex='4' type='text' id='ts' placeholder='time start / column'/>
+		<input tabindex='3' type='text' id='t3' placeholder='text(.t3)' oninput='$$.GI("st3").innerHTML=this.value;'/>
+		<input tabindex='4' type='text' id='te' placeholder='time end / row'/>
+		
+		<input tabindex='4' type='text' id='num' placeholder='num'/>
+		<input tabindex='5' type='button' onclick="$$.new_add();" value='+' />
+	</div>
 
 		
-	<select id='added_style' onchange='$$.CCN("sample", this.value);'>
-	<option>message</option>
-	<option>message2</option>
-	<option>message3</option>
-	<option>message4</option>
-	<option>message5</option>
-	<option>message6</option>
-	</select>
-	
-	<input tabindex='4' type='text' id='num' placeholder='num'/>
-	<input tabindex='5' type='button' onclick="$$.new_add();" value='+' />
-	<input tabindex='6' type='button' onclick="$$.clear();" value='clear' />
-	<hr/>
-
-	<select id='rest'>
-	<option>message</option>
-	<option>style1</option>
-	<option>style2</option>
-	<option>style3</option>
-	<option>style4</option>
-	</select>
-
-	<select id='cast_sel'>
-	<option>t1</option>
-	<option>t2</option>
-	<option>t3</option>
-	</select>
-
-	<input type='color' id='cast_color' name='cast_color'/>
-	<input type='color' id='cast_bg_color' name='cast_bg_color' value='#ffffff'/>
-	<input type='button' value='ok' onclick='$$.reStyler();'/>
-	</div>
-
-	<div id='tpl'>
 	<div id="sample" class="message">
-	<b id="st1" class="t1"></b><hr>
-	<i id="st2" class="t2"></i><hr>
-	<i id="st3" class="t3"></i>
+		<b id="st1" class="t1"></b><hr>
+		<i id="st2" class="t2"></i><hr>
+		<i id="st3" class="t3"></i>
 	</div>
+
+
+	<div class='g2c message'>
+		<select id='d' onchange='$$.CCN("Print", this.value); if(this.value == "dg"){$$.new_add(24)}'>
+			<option value='b'>block</option>
+			<option value='f'>flex</option>
+			<option value='b-ib'>block > *{inline-block}</option>
+			<option value='gaf'>grid auto-fit</option>
+			<option value='g1c'>grid repeat(1, 1fr);</option>
+			<option value='g2c'>grid repeat(2, 1fr);</option>
+			<option value='g3c'>grid repeat(3, 1fr);</option>
+			<option value='g4c'>grid repeat(4, 1fr);</option>
+			<option value='g5c'>grid repeat(5, 1fr);</option>
+			<option value='g6c'>grid repeat(6, 1fr);</option>
+			<option value='g7c'>grid repeat(7, 1fr);</option>
+			<option value='dg'>Gantt chart 2400</option>
+			<option value='diagram'>grid \ diagram - 100</option>
+		</select>
+		<input tabindex='6' type='button' onclick="$$.clear();" value='clear' />
+		
+		<input type='button' onclick='$$.GI("canvas").style="background:red;"' value='red'>
+		<input type='button' onclick='$$.GI("canvas").style="background: white;"' value='white'>
+		
+		<input type='button' onclick='$$.GI("canvas").style="background: green;"' value='green'>
+		<input type='button' onclick='$$.GI("canvas").style="background: lightgray;"' value='light gray'>
+			
+		<input type='button' onclick='$$.GI("canvas").style="background: blue;"' value='blue'>
+		<input type='button' onclick='$$.GI("canvas").style="background: gray;"' value='gray'>
+		
+		<input type='color' onchange='$$.GI("canvas").style="background: " + this.value;'>
+		<input type='button' onclick='$$.GI("canvas").style="background: black;"' value='black'>
+	</div>
+
 	<script class='snippet message' contenteditable>/*script*/</script>
 	<style class='snippet message' id='styler' contenteditable>/*style*/</style>
 	</div>
