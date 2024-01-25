@@ -1,10 +1,11 @@
-:root{--home: 'puffleeck';}
-
 	#en:checked ~ *{
+--canvas:			'canvas';
+--author:			'author';
+--changes:			'change`s log';
 --cards:			'cards';
 --display:			'display';
---settings:			'settings';
 --info:				'information';
+--settings:			'settings';
 --hue:				'color selector';
 --saturate:			'saturate';
 --brightness:			'brightness';
@@ -14,10 +15,13 @@
 	}
 
 	#ru:checked ~ *{
+--canvas:			'холст';
+--author:			'автор';
+--changes:			'история изменений';
 --cards:			'карточки';
 --display:			'дисплей';
---settings:			'настройки';
 --info:				'информация';
+--settings:			'настройки';
 --hue:				'Hue`верть почти как в старом, добром AIMP только круче :3';
 --saturate:			'насыщенность';
 --brightness:			'яркость';
@@ -27,12 +31,13 @@
 	}
 
 #menu > *:after{content: attr(href);}
-#to_home:after							{content: var(--home)}
+#to_canvas:after						{content: var(--canvas)}
+#to_author:after						{content: var(--author)}
+#to_changes:after						{content: var(--changes)}
 #to_cards:after							{content: var(--cards)}
 #to_display:after						{content: var(--display)}
-#to_settings:after						{content: var(--settings)}
-#to_donate:after						{content: var(--donate)}
 #to_info:after							{content: var(--info)}
+#to_settings:after						{content: var(--settings)}
 #hue:after							{content:var(--hue)}
 #saturate:after							{content:var(--saturate)}
 #brightness:after						{content:var(--brightness)}
