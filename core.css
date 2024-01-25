@@ -1,17 +1,27 @@
+[name=lang]{display: none;}
+*{scrollbar-width: thin;}
+#b, #q, .tabs{
+	padding: 0;
+	margin: 0;
+}
 @keyframes bg_light{
 0% {background: hsl(255, 100%, 90%)}
 50% {background: hsl(128, 100%, 90%)}
 100% {background: hsl(0, 100%, 90%)}
 }
-
 @keyframes bg_dark{
 0% {background: hsl(255, 85%, 75%)}
 50% {background: hsl(128, 85%, 75%)}
 100% {background: hsl(0, 85%, 75%)}
 }
-
-.full{position: absolute; height:100vh; width: 100vw; top:0; left: 0; padding: 0; margin: 0; animation: bg_light 360s both paused;}
-[name=lang]{display: none}
+.full{
+	position: absolute;
+	height: 100vh;
+	width: 100vw;
+	top: 0;
+	left: 0;
+	animation: bg_light 360s both paused;
+}
 @media (prefers-color-scheme: dark) {body{filter: invert(100%);}}
 @media (display-mode: fullscreen){#display:target > #fill{position: absolute; height:100vh; width: 100vw; top:0; left: 0; z-index:777}}
 @media print{#menu, .tabs > :not(#print){display: none !important;}}
@@ -60,13 +70,13 @@
 	.g5c{display: grid; grid-template-columns: repeat(5, 1fr);}
 	.g6c{display: grid; grid-template-columns: repeat(6, 1fr);}
 	.g7c{display: grid; grid-template-columns: repeat(7, 1fr);}
+	.diagram{display: grid; grid-template-columns: repeat(100, 1fr);}
 	.dg{
 		display: grid;
 		grid-template-columns: repeat(2400, 1fr);
 		grid-auto-flow: dense;
 		overflow-x: auto;
 	} /* Gantt chart | диаграмма Ганта */
-	.diagram{display: grid; grid-template-columns: repeat(100, 1fr);}
 
 .t1{font-size: 1.4em;}
 .uii{grid-column: 1}
