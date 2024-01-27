@@ -17,9 +17,9 @@ sum: 0,
 clear: function(){this.GI('Print').innerHTML = '';},
 del: function(id){this.RC(this.GI('Print'), this.GI(id));},
 CCN: function(target, name){this.GI(target).className=name;},
-new_add: function(a)
+new_add: function(a, target_canvas = 'canvas')
 	{
-		var print = this.GI('Print');
+		var print = this.GI(target_canvas);
 		var t1 = this.GI('t1').value;
 		var t2 = this.GI('t2').value;
 		var t3 = this.GI('t3').value;
@@ -45,8 +45,21 @@ new_add: function(a)
 		}
 		this.i = 0;
 	},
-reStyler: function()
+creator: function (x)
 	{
+		var parent = this.GI(x.parent);
+		var p = parent;
+		for (let j = 0; j < x.elements.length; j++) {
+			let spawn = $$.CE(x.tag);
+			spawn.id = x.elements[j] + j;
+			spawn[x.name] = x.elements[j];
+			if(x.id)spawn.id = x.id;
+			if(x.clas)spawn.className = x.clas;
+			if(x.style)spawn.style = x.style;
+			this.AC(this.GI(x.parent), spawn);
+			}
+	},
+reStyler: function(){
 	this.GI("styler").innerHTML +=
 		'\n.' + this.GI('rest').value + ' > ' +
 		'.' + this.GI('cast_sel').value + '{' +
