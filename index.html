@@ -10,7 +10,6 @@
 <div id='menu' class='UX'>
 <a id='to_home' href='#'></a>
 <a id='to_canvas' href='#canvas'></a>
-<a id='to_display' href='#display'></a>
 <a id='to_info' href='#info'></a>
 <a id='to_settings' href='#settings'></a>
 </div>
@@ -217,27 +216,6 @@
 		<p>^ .snippet</p>
 		</fieldset>
 	</fieldset>
-</div>
-
-<div id='display' class='tabs'>
-	<fieldset class='message'>
-		<legend>данная страница предназначена для проверки и обслуживания дисплея или монитора</legend>
-		<p>для поиска битых пикселей</p>
-		<p>проверки OLED матриц на предмет выгорания</p>
-		<p>ну и чтоб пыль было лучше видно при очистке</p>
-		<p>для перехода в fullscreen нажми [F11]</p>
-		<input type='button' onclick='$$.GI("fill").style="background:red;"' value='red'>
-		<input type='button' onclick='$$.GI("fill").style="background: green;"' value='green'>
-		<input type='button' onclick='$$.GI("fill").style="background: blue;"' value='blue'>
-		<hr>
-		<input type='button' onclick='$$.GI("fill").style="background: white;"' value='white'>
-		<input type='button' onclick='$$.GI("fill").style="background: lightgray;"' value='light gray'>
-		<input type='button' onclick='$$.GI("fill").style="background: gray;"' value='gray'>
-		<input type='button' onclick='$$.GI("fill").style="background: black;"' value='black'>
-		<hr>
-		<input type='color' onchange='$$.GI("fill").style="background: " + this.value;'>
-	</fieldset>
-	<div id='fill'> </div>
 </div>
 
 <div id='settings' class='tabs'>
