@@ -84,6 +84,7 @@
 			<option>message4</option>
 			<option>message5</option>
 			<option>message6</option>
+			<option>message7</option>
 			</select>
 
 			<select id='cast_sel'>
@@ -246,21 +247,24 @@
 </div>
 
 <div id='settings' class='tabs'>
-	<form id='sf' class='message g4c' oninput='$$.GI("b").style=`filter: hue-rotate(${this.children.h.value}deg) saturate(${this.children.s.value}%) brightness(${this.children.l.value}%) invert(${this.elements.i.value}%);`;'>
-		<input class='uii' id='h' min="0" max="360" value="0" type="range"/>
-		<input class='uii' id='s' min="0" max="200" value="100" type="number"/>
-		<input class='uii' id='l' min="0" max="200" value="100" type="number"/>
+	<form id='sf' class='message g3c' oninput='$$.GI("b").style=`filter: hue-rotate(${this.children.h.value}deg) saturate(${this.children.s.value}%) brightness(${this.children.l.value}%) invert(${this.elements.i.value}%);`;'>
+		<label class='span' id='hue' for='h'></label>
+		<input id='h' min="0" max="360" value="0" type="range"/>
+			
+		<label class='span' id='saturate' for='s'></label>
+		<input id='s' min="0" max="200" value="100" type="number"/>
+			
+		<label class='span' id='brightness' for='l'></label>
+		<input id='l' min="0" max="200" value="100" type="number"/>
 
-		<label class='uil' id='hue' for='h'></label>
-		<label class='uil' id='saturate' for='s'></label>
-		<label class='uil' id='brightness' for='l'></label>
-
-		<b id='langs'></b>
-		<label id='for_en' for="en">en</label>
-		<label id='for_ru' for="ru">ru</label>
-		
 		<label id='night'><input name='i' value="100" type="radio"/></label>
 		<label id='day'><input checked name='i' value="0" type="radio"/></label>
 	</form>
+		
+	<div class='g4c message'>
+		<b id='langs' class='span'></b>
+		<label id='for_en' for="en">en</label>
+		<label id='for_ru' for="ru">ru</label>
+	</div>
 </div>
 </div></body></html>
