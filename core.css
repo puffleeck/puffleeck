@@ -45,37 +45,28 @@
 	left: 0;
 }
 .full, .message,  #menu > *{animation-delay: -5s;}
+#q{display: grid;}
+.tabs:target{overflow: auto;}
 @media (prefers-color-scheme: dark) {body{filter: invert(100%);}}
-@media print{#menu, .tabs > :not(#print){display: none !important;}}
-@media (display-mode: fullscreen){
-	#display:target > #fill{
-		position: absolute;
-		height: 100vh;
-		width: 100vw;
-		top: 0;
-		left: 0;
-		z-index:777;
-	}
-}
+@media print{#q > *:not(#canvas){display: none;}}
 @media not print{
-	.tabs{display: none;}
-	.tabs:target{display: block;width: 100%;}
-	#cards:target{
-		display: grid;
-		grid-template-columns: 1fr 3fr;
-		height: 90%;
-		}
-	#Print{
-		grid-column: 2;
-		overflow-x: auto;
-		}
+	#q{grid-template: 5em 1fr / 1fr 4fr;}
+	#q > .tabs:target{grid-column: 2;}
+	#q > .tabs:not(:target){display: none;}
 }
-#tpl{
+@media (display-mode: fullscreen){
+	#b>#q{grid-template: 1fr / 1fr;}
+	#q > .tabs:target{grid-column: 1;}
+	#q > .UX{display: none}
+}
+#LP{
 	grid-column: 1;
+	grid-row: 1/ span 2;
 	border-right: 3px #55a solid;
-	overflow-y: auto;
 	}
 #menu{
+	grid-column:2;
+	grid-row: 1;
 	display: grid;
 	grid-auto-flow: column;
 	text-align: center;
@@ -90,7 +81,7 @@
 	}
 .snippet:focus{border: 3px solid #99f;}
 .t1{font-size: 1.4em;}
-#sf{ grid-auto-flow: dense; grid-gap: .5em; padding: 3em; margin: 5em;}
+#sf label{padding: .3em;}
 .span{grid-column: span 2;}
 .f{display: flex;}
 .b{display: block;}
@@ -111,7 +102,7 @@
 		overflow-x: auto;
 	} /* Gantt chart | диаграмма Ганта */
 .horizont{display: block flex; overflow-x: auto}
-#info .message:hover, #menu > *:hover{
+#changes .message:hover, #author .message:hover, #menu > *:hover{
 	transform: scale(1.1);
 	box-shadow: 0 7px 10px 5px rgba(0,0,0, .6);
 	filter: brightness(135%);
