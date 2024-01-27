@@ -2,8 +2,6 @@
 --canvas:			'canvas';
 --author:			'author';
 --changes:			'change`s log';
---cards:			'cards';
---display:			'display';
 --info:				'information';
 --settings:			'settings';
 --hue:				'color selector';
@@ -18,8 +16,6 @@
 --canvas:			'холст';
 --author:			'автор';
 --changes:			'история изменений';
---cards:			'карточки';
---display:			'дисплей';
 --info:				'информация';
 --settings:			'настройки';
 --hue:				'Hue`верть почти как в старом, добром AIMP только круче :3';
@@ -34,8 +30,6 @@
 #to_canvas:after						{content: var(--canvas)}
 #to_author:after						{content: var(--author)}
 #to_changes:after						{content: var(--changes)}
-#to_cards:after							{content: var(--cards)}
-#to_display:after						{content: var(--display)}
 #to_info:after							{content: var(--info)}
 #to_settings:after						{content: var(--settings)}
 #hue:after							{content:var(--hue)}
