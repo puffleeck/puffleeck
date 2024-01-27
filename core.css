@@ -52,7 +52,7 @@
 @media not print{
 	#q{grid-template: 5em 1fr / 1fr 4fr;}
 	#q > .tabs:target{grid-column: 2;}
-	#q > .tabs:not(:target){display: none;}
+	#q > .tabs:not(:target), #canvas:not(:target){display: none;}
 }
 @media (display-mode: fullscreen){
 	#b>#q{grid-template: 1fr / 1fr;}
