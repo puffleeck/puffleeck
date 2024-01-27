@@ -3,28 +3,60 @@
 #b, #q, .tabs{
 	padding: 0;
 	margin: 0;
+}@keyframes back{
+	00% {background: hsl(255, 100%, 90%)}
+	01% {background: hsl(255, 65%, 60%)}
+	02% {background: hsl(255, 55%, 65%)}
+	03% {background: hsl(255, 70%, 60%)}
+	04% {background: hsl(255, 55%, 45%)}
+	05% {background: hsl(255, 100%, 90%)}
+	50% {background: hsl(128, 100%, 90%)}
+	100% {background: hsl(0, 100%, 90%)}
+}@keyframes ux{
+	00% {background: hsl(255, 65%, 70%)}
+	01% {background: hsl(255, 100%, 80%)}
+	02% {background: hsl(255, 75%, 85%)}
+	03% {background: hsl(255, 50%, 65%)}
+	04% {background: hsl(255, 65%, 75%)}
+	05% {background: hsl(255, 85%, 75%)}
+	50% {background: hsl(128, 85%, 75%)}
+	100% {background: hsl(0, 85%, 75%)}
 }
-@keyframes bg_light{
-0% {background: hsl(255, 100%, 90%)}
-50% {background: hsl(128, 100%, 90%)}
-100% {background: hsl(0, 100%, 90%)}
+.message, .message2, .message3, .message4, .message5, .message6, .message7, #menu > *{
+	animation: ux 100s linear both paused;
+	margin: 20px;
+	padding: 10px;
+	border-radius: 15px;
+	box-shadow: 0 7px 10px 5px rgba(0,0,0, .4);
+	transition: all ease-out 0.1s;
 }
-@keyframes bg_dark{
-0% {background: hsl(255, 85%, 75%)}
-50% {background: hsl(128, 85%, 75%)}
-100% {background: hsl(0, 85%, 75%)}
-}
+.message2{animation-delay: -0s;}
+.message3{animation-delay: -20s;}
+.message4{animation-delay: -40s;}
+.message5{animation-delay: -60s;}
+.message6{animation-delay: -80s;}
+.message7{animation-delay: -100s;}
 .full{
+	animation: back 100s linear both paused;
 	position: absolute;
 	height: 100vh;
 	width: 100vw;
 	top: 0;
 	left: 0;
-	animation: bg_light 360s both paused;
 }
+.full, .message,  #menu > *{animation-delay: -5s;}
 @media (prefers-color-scheme: dark) {body{filter: invert(100%);}}
-@media (display-mode: fullscreen){#display:target > #fill{position: absolute; height:100vh; width: 100vw; top:0; left: 0; z-index:777}}
 @media print{#menu, .tabs > :not(#print){display: none !important;}}
+@media (display-mode: fullscreen){
+	#display:target > #fill{
+		position: absolute;
+		height: 100vh;
+		width: 100vw;
+		top: 0;
+		left: 0;
+		z-index:777;
+	}
+}
 @media not print{
 	.tabs{display: none;}
 	.tabs:target{display: block;width: 100%;}
@@ -47,7 +79,6 @@
 	display: grid;
 	grid-auto-flow: column;
 	text-align: center;
-	animation: bg_light 360s both paused;
 	font: 20px bold;
 	}
 .snippet{
@@ -57,20 +88,20 @@
 	min-height: 3em;
 	border: 3px solid #339;
 	}
-.snippet:focus{border: 3px solid #99f; box-shadow: 0 7 10px 5px blue;}
-
-	.f{display: flex;}
-	.b{display: block;}
-	.b-ib{display: block;} .b-ib > *{display: inline-block;}
-	.gaf{display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));}
-	.g1c{display: grid; grid-template-columns: repeat(1, 1fr);}
-	.g2c{display: grid; grid-template-columns: repeat(2, 1fr);}
-	.g3c{display: grid; grid-template-columns: repeat(3, 1fr);}
-	.g4c{display: grid; grid-template-columns: repeat(4, 1fr);}
-	.g5c{display: grid; grid-template-columns: repeat(5, 1fr);}
-	.g6c{display: grid; grid-template-columns: repeat(6, 1fr);}
-	.g7c{display: grid; grid-template-columns: repeat(7, 1fr);}
-	.diagram{display: grid; grid-template-columns: repeat(100, 1fr);}
+.snippet:focus{border: 3px solid #99f;}
+.t1{font-size: 1.4em;}
+.f{display: flex;}
+.b{display: block;}
+.b-ib{display: block;} .b-ib > *{display: inline-block;}
+.gaf{display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));}
+.g1c{display: grid; grid-template-columns: repeat(1, 1fr);}
+.g2c{display: grid; grid-template-columns: repeat(2, 1fr);}
+.g3c{display: grid; grid-template-columns: repeat(3, 1fr);}
+.g4c{display: grid; grid-template-columns: repeat(4, 1fr);}
+.g5c{display: grid; grid-template-columns: repeat(5, 1fr);}
+.g6c{display: grid; grid-template-columns: repeat(6, 1fr);}
+.g7c{display: grid; grid-template-columns: repeat(7, 1fr);}
+.diagram{display: grid; grid-template-columns: repeat(100, 1fr);}
 	.dg{
 		display: grid;
 		grid-template-columns: repeat(2400, 1fr);
@@ -78,26 +109,12 @@
 		overflow-x: auto;
 	} /* Gantt chart | диаграмма Ганта */
 
-.t1{font-size: 1.4em;}
 .uii{grid-column: 1}
 .uil{grid-column: span 2 / 4}
 #sf{ grid-auto-flow: dense; grid-gap: .5em; padding: 3em; margin: 5em;}
 .horizont{display: block flex; overflow-x: auto}
-.message, .message2, .message3, .message4, .message5, .message6, #menu > *{
-	animation: bg_dark 360s both paused;
-	margin: 15px;
-	padding: 10px;
-	border-radius: 15px;
-	box-shadow: 0 7px 10px 5px rgba(0,0,0, .4);
-	transition: all ease-out 0.1s;
-}
-.message2{animation: bg_dark 360s both -60s paused;}
-.message3{animation: bg_dark 360s both -120s paused;}
-.message4{animation: bg_dark 360s both -180s paused;}
-.message5{animation: bg_dark 360s both -240s paused;}
-.message6{animation: bg_dark 360s both -300s paused;}
 #info .message:hover, #menu > *:hover{
 	transform: scale(1.1);
 	box-shadow: 0 7px 10px 5px rgba(0,0,0, .6);
-	background: rgba(256, 256, 256, 0.4);
+	filter: brightness(135%);
 }
