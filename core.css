@@ -90,6 +90,8 @@
 	}
 .snippet:focus{border: 3px solid #99f;}
 .t1{font-size: 1.4em;}
+#sf{ grid-auto-flow: dense; grid-gap: .5em; padding: 3em; margin: 5em;}
+.span{grid-column: span 2;}
 .f{display: flex;}
 .b{display: block;}
 .b-ib{display: block;} .b-ib > *{display: inline-block;}
@@ -108,10 +110,6 @@
 		grid-auto-flow: dense;
 		overflow-x: auto;
 	} /* Gantt chart | диаграмма Ганта */
-
-.uii{grid-column: 1}
-.uil{grid-column: span 2 / 4}
-#sf{ grid-auto-flow: dense; grid-gap: .5em; padding: 3em; margin: 5em;}
 .horizont{display: block flex; overflow-x: auto}
 #info .message:hover, #menu > *:hover{
 	transform: scale(1.1);
