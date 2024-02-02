@@ -46,7 +46,7 @@
 }
 .full, .message,  #menu > *{animation-delay: -5s;}
 #q{display: grid;}
-.tabs:target{overflow: auto;}
+.tabs:target, #canvas:target{overflow: auto;}
 @media (prefers-color-scheme: dark) {body{filter: invert(100%);}}
 @media print{#q > *:not(#canvas){display: none;}}
 @media not print{
@@ -102,7 +102,7 @@
 		overflow-x: auto;
 	} /* Gantt chart | диаграмма Ганта */
 .horizont{display: block flex; overflow-x: auto}
-#changes .message:hover, #author .message:hover, #menu > *:hover{
+#info .message:hover, #changes .message:hover, #author .message:hover, #menu > *:hover{
 	transform: scale(1.1);
 	box-shadow: 0 7px 10px 5px rgba(0,0,0, .6);
 	filter: brightness(135%);
