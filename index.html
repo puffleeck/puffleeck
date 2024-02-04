@@ -224,17 +224,17 @@
 
 <div id='t_Settings' class='tabs'>
 	<form id='sf' class='message g3c' oninput='$$.GI("b").style=`filter: hue-rotate(${this.children.h.value}deg) saturate(${this.children.s.value}%) brightness(${this.children.l.value}%) invert(${this.elements.i.value}%);`;'>
-		<label class='span' id='hue' for='h'></label>
+		<label class='local span' id='hue' for='h'></label>
 		<input id='h' min="0" max="360" value="0" type="range"/>
 			
-		<label class='span' id='saturate' for='s'></label>
+		<label class='local span' id='saturate' for='s'></label>
 		<input id='s' min="0" max="200" value="100" type="number"/>
 			
-		<label class='span' id='brightness' for='l'></label>
+		<label class='local span' id='brightness' for='l'></label>
 		<input id='l' min="0" max="200" value="100" type="number"/>
 
-		<label id='night'><input name='i' value="100" type="radio"/></label>
-		<label id='day'><input checked name='i' value="0" type="radio"/></label>
+		<label class='local' id='night'><input name='i' value="100" type="radio"/></label>
+		<label class='local' id='day'><input checked name='i' value="0" type="radio"/></label>
 	</form>
 		
 	<div class='g4c message'>
