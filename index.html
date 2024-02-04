@@ -148,76 +148,6 @@
 	</fieldset>
 </div>
 
-<div id='t_Changes' class='tabs foi'>
-	<fieldset class='message'>
-	<legend>icon`s</legend>
-	<p>^ upd</p>
-	<p>* upg</p>
-	<p>+ add</p>
-	<p>- del</p>
-	<p>/ div</p>
-	<p>@ fix</p>
-	<p>> replace</p>
-	<p>-> merge</p>
-	</fieldset>
-
-	<fieldset class='message'>
-	<legend>15.07.2022</legend>
-	<p>+ #sample</p>
-	<p>^ #Print</p>
-	</fieldset>
-	
-	<fieldset class='message'>
-	<legend>31.08.2022</legend>
-	<p>+ #tpl</p>
-	<p>+ $$.sort</p>
-	<p>^ #f</p>
-	</fieldset>
-	
-	<fieldset class='message'>
-	<legend>17.10.2023</legend>
-	<p>+ select float</p>
-	<p>@ select inline</p>
-	<p>@ #tpl css snippet</p>
-	<p>@ #NoPrint</p>
-	</fieldset>
-		
-	<fieldset class='message'>
-	<legend>19.10.2023</legend>
-	<p>+ .tabs:target</p>
-	<p>@ #tpl</p>
-	<p>@ $$.reStyler</p>
-	<p>@ @media</p>
-	<p>sort() > CCN()</p>
-	</fieldset>
-		
-	<fieldset class='message'>
-	<legend>25.10.2023</legend>
-	<p>+ Gantt</p>
-	<p>+ display</p>
-	<p>^ info</p>
-	<p>@ new_add()</p>
-	<p>cards -> index</p>
-	</fieldset>
-		
-	<fieldset class='message'>
-	<legend>28.12.2023</legend>
-	<p>+ switch lang`s</p>
-	<p>* #cards</p>
-	<p>@ custom</p>
-	<p>/ *.js, *.css</p>
-	</fieldset>
-		
-	<fieldset class='message'>
-	<legend>18.01.2024</legend>
-	<p>* #cards</p>
-	<p>* #menu</p>
-	<p>^ #info</p>
-	<p>^ :hover's</p>
-	<p>^ .snippet</p>
-	</fieldset>
-</div>
-
 <div id='t_Settings' class='tabs'>
 	<form id='sf' class='message g3c' oninput='$$.customise("b", this)'>
 		<label class='local span' id='hue' for='h'></label>
@@ -241,15 +171,70 @@
 </div>
 </div></body>
 <script>
-var y = [{
-
+var y = [{ // data
 parent: 'q',
 name: 'id',
 tag: 'div',
-clas: 'tabs',
-elements: ['t_Canvas'],
+clas: 'tabs gafd',
+elements: ['t_Canvas', 't_Changes'],
+	},{
 
-	},];
+parent: 't_Changes',
+name: 'innerHTML',
+tag: 'div',
+clas: 'message5',
+style: 'grid-column: 1',
+elements: ["icon's", '^ upd', '* upg', '+ add', '- del', '/ div', '@ fix', '> replace', '-> merge',],
+	},{
+parent: 't_Changes',
+name: 'innerHTML',
+tag: 'div',
+clas: 'message3',
+style: 'grid-column: 2',
+elements: ['15.07.2022', '+ #sample', '^ #Print'],
+	},{
+parent: 't_Changes',
+name: 'innerHTML',
+tag: 'div',
+clas: 'message6',
+style: 'grid-column: 3',
+elements: ['31.08.2022', '+ #tpl', '+ $$.sort', '^ #f']
+	},{
+parent: 't_Changes',
+name: 'innerHTML',
+tag: 'div',
+clas: 'message4',
+style: 'grid-column: 4',
+elements: ['17.10.2023', '+ select float', '@ select inline', '@ #tpl css snippet', '@ #NoPrint']
+	},{
+parent: 't_Changes',
+name: 'innerHTML',
+tag: 'div',
+clas: 'message3',
+style: 'grid-column: 5',
+elements: ['19.10.2023', '+ .tabs:target', '@ #tpl', '@ $$.reStyler', '@ @media', 'sort() > CCN()']
+	},{
+parent: 't_Changes',
+name: 'innerHTML',
+tag: 'div',
+clas: 'message7',
+style: 'grid-column: 6',
+elements: ['25.10.2023', '+ Gantt', '+ display', '^ info', '@ new_add()', 'cards -> index']
+	},{
+parent: 't_Changes',
+name: 'innerHTML',
+tag: 'div',
+clas: 'message4',
+style: 'grid-column: 7',
+elements: ['28.12.2023', '+ switch lang`s', '* #cards', '@ custom', '/ *.js, *.css']
+	},{
+parent: 't_Changes',
+name: 'innerHTML',
+tag: 'div',
+clas: 'message3',
+style: 'grid-column: 8',
+elements: ['18.01.2024', '* #cards', '* #menu', '^ #info', "^ :hover's", '^ .snippet',],
+	}];
 for(let i =0; y[i]; i++){$$.creator(y[i]);}
 </script>
 </html>
