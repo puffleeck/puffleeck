@@ -84,6 +84,8 @@
 #sf label{padding: .3em;}
 .span{grid-column: span 2;}
 .f{display: flex;}
+.fo{display: flex;overflow-x: auto;}
+.foi{display: flex;overflow-x: auto;} .foi > *{display: inline-block;}
 .b{display: block;}
 .b-ib{display: block;} .b-ib > *{display: inline-block;}
 .gaf{display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));}
@@ -102,8 +104,8 @@
 		overflow-x: auto;
 	} /* Gantt chart | диаграмма Ганта */
 .horizont{display: block flex; overflow-x: auto}
-#t_Info .message:hover, #t_Changes .message:hover, #t_Author .message:hover, #menu > *:hover{
+#menu > *:hover{
 	transform: scale(1.1);
 	box-shadow: 0 7px 10px 5px rgba(0,0,0, .6);
-	filter: brightness(135%);
 }
+#menu > *:hover, .message:hover{filter: brightness(125%);}
