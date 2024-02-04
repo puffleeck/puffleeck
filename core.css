@@ -5,20 +5,20 @@
 	margin: 0;
 }@keyframes back{
 	00% {background: hsl(255, 100%, 90%)}
-	01% {background: hsl(255, 65%, 60%)}
+	01% {background: hsl(255, 100%, 90%)}
 	02% {background: hsl(255, 55%, 65%)}
-	03% {background: hsl(255, 70%, 60%)}
-	04% {background: hsl(255, 55%, 45%)}
-	05% {background: hsl(255, 100%, 90%)}
+	03% {background: hsl(255, 65%, 60%)}
+	04% {background: hsl(255, 70%, 60%)}
+	05% {background: hsl(255, 55%, 45%)}
 	50% {background: hsl(128, 100%, 90%)}
 	100% {background: hsl(0, 100%, 90%)}
 }@keyframes ux{
-	00% {background: hsl(255, 65%, 70%)}
-	01% {background: hsl(255, 100%, 80%)}
+	00% {background: hsl(255, 85%, 75%)}
+	01% {background: hsl(255, 65%, 70%)}
 	02% {background: hsl(255, 75%, 85%)}
-	03% {background: hsl(255, 50%, 65%)}
-	04% {background: hsl(255, 65%, 75%)}
-	05% {background: hsl(255, 85%, 75%)}
+	03% {background: hsl(255, 100%, 80%)}
+	04% {background: hsl(255, 50%, 75%)}
+	05% {background: hsl(255, 65%, 75%)}
 	50% {background: hsl(128, 85%, 75%)}
 	100% {background: hsl(0, 85%, 75%)}
 }
@@ -46,13 +46,13 @@
 }
 .full, .message,  #menu > *{animation-delay: -5s;}
 #q{display: grid;}
-.tabs:target, #canvas:target{overflow: auto;}
+.tabs:target, #t_Canvas:target{overflow: auto;}
 @media (prefers-color-scheme: dark) {body{filter: invert(100%);}}
-@media print{#q > *:not(#canvas){display: none;}}
+@media print{#q > *:not(#t_Canvas){display: none;}}
 @media not print{
 	#q{grid-template: 5em 1fr / 1fr 4fr;}
 	#q > .tabs:target{grid-column: 2;}
-	#q > .tabs:not(:target), #canvas:not(:target){display: none;}
+	#q > .tabs:not(:target), #t_Canvas:not(:target){display: none;}
 }
 @media (display-mode: fullscreen){
 	#b>#q{grid-template: 1fr / 1fr;}
@@ -102,7 +102,7 @@
 		overflow-x: auto;
 	} /* Gantt chart | диаграмма Ганта */
 .horizont{display: block flex; overflow-x: auto}
-#info .message:hover, #changes .message:hover, #author .message:hover, #menu > *:hover{
+#t_Info .message:hover, #t_Changes .message:hover, #t_Author .message:hover, #menu > *:hover{
 	transform: scale(1.1);
 	box-shadow: 0 7px 10px 5px rgba(0,0,0, .6);
 	filter: brightness(135%);
