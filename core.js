@@ -14,10 +14,10 @@ CN: function (cloneElem, childs) {cloneElem.cloneNode(childs);},
 
 i: 0,
 sum: 0,
-clear: function(){this.GI('Print').innerHTML = '';},
-del: function(id){this.RC(this.GI('Print'), this.GI(id));},
+clear: function(){this.GI('t_Canvas').innerHTML = '';},
+del: function(id){this.RC(this.GI('t_Canvas'), this.GI(id));},
 CCN: function(target, name){this.GI(target).className=name;},
-new_add: function(a, target_canvas = 'canvas')
+new_add: function(a, target_canvas = 't_Canvas')
 	{
 		var print = this.GI(target_canvas);
 		var t1 = this.GI('t1').value;
