@@ -44,7 +44,7 @@
 	top: 0;
 	left: 0;
 }
-.full, .message,  #menu > *{animation-delay: -5s;}
+.full, .message,  #menu > *{animation-delay: var(--skin);}
 #q{display: grid;}
 .tabs:target, #t_Canvas:target{overflow: auto;}
 @media (prefers-color-scheme: dark) {body{filter: invert(100%);}}
