@@ -8,10 +8,10 @@
 <input type="radio" id="ru" name="lang"/>
 
 <div id='menu' class='UX'>
-<a id='to_home' href='#'></a>
-<a id='to_canvas' href='#canvas'></a>
-<a id='to_info' href='#info'></a>
-<a id='to_settings' href='#settings'></a>
+<a class='local' id='canvas' href='#t_Canvas'></a>
+<a class='local' id='author' href='#t_Author'></a>
+<a class='local' id='changes' href='#t_Changes'></a>
+<a class='local' id='settings' href='#t_Settings'></a>
 </div>
 
 <div id='LP' class='UX'>
@@ -43,7 +43,7 @@
 		</div>
 
 		<div class='g2c message'>
-			<select id='d' onchange='$$.CCN("canvas", this.value); if(this.value == "dg"){$$.new_add(24)}'>
+			<select id='d' onchange='$$.CCN("t_Canvas", this.value); if(this.value == "dg"){$$.new_add(24)}'>
 			<option value='b'>block</option>
 			<option value='fo'>flex</option>
 			<option value='b-ib'>block > *{inline-block}</option>
@@ -60,17 +60,17 @@
 			</select>
 			<input tabindex='6' type='button' onclick="$$.clear();" value='clear' />
 			
-			<input type='button' onclick='$$.GI("canvas").style="background: red;"' value='red'>
-			<input type='button' onclick='$$.GI("canvas").style="background: white;"' value='white'>
+			<input type='button' onclick='$$.GI("t_Canvas").style="background: red;"' value='red'>
+			<input type='button' onclick='$$.GI("t_Canvas").style="background: white;"' value='white'>
 			
-			<input type='button' onclick='$$.GI("canvas").style="background: green;"' value='green'>
-			<input type='button' onclick='$$.GI("canvas").style="background: lightgray;"' value='light gray'>
+			<input type='button' onclick='$$.GI("t_Canvas").style="background: green;"' value='green'>
+			<input type='button' onclick='$$.GI("t_Canvas").style="background: lightgray;"' value='light gray'>
 			
-			<input type='button' onclick='$$.GI("canvas").style="background: blue;"' value='blue'>
-			<input type='button' onclick='$$.GI("canvas").style="background: gray;"' value='gray'>
+			<input type='button' onclick='$$.GI("t_Canvas").style="background: blue;"' value='blue'>
+			<input type='button' onclick='$$.GI("t_Canvas").style="background: gray;"' value='gray'>
 			
-			<input type='color' onchange='$$.GI("canvas").style="background: " + this.value;'>
-			<input type='button' onclick='$$.GI("canvas").style="background: black;"' value='black'>
+			<input type='color' onchange='$$.GI("t_Canvas").style="background: " + this.value;'>
+			<input type='button' onclick='$$.GI("t_Canvas").style="background: black;"' value='black'>
 		</div>
 		
 		<div class='message'>
@@ -92,11 +92,15 @@
 			<input type='color' id='cast_color' name='cast_color'/>
 			<input type='color' id='cast_bg_color' name='cast_bg_color' value='#ffffff'/>
 		</div>
-		<style class='snippet message' id='styler' contenteditable>/*style*/</style>
+		<style class='snippet message' id='styler' contenteditable>#b{--skin: -2s;} 
+/* here you may select a skin.
+0, -1s, -2s, -3s, -4s, -5s, -50s, -100s */
+		</style>
 </div>
 
-<div id='info' class='tabs'>
-	<fieldset class='horizont'><legend>about me / resume</legend>
+<div id='t_Author' class='tabs'>
+	<div>about me / resume</div>
+	<div class='fo'>
 		<fieldset class='message'><legend>contacts</legend>
 			<p><a href='mailto://puffleeck@mail.ru'>puffleeck@mail.ru</a></p>
 			<p><a href='https://ru.stackoverflow.com/users/512628/puffleeck'>ru.stackoverflow.com / puffleeck</a></p>
@@ -144,10 +148,11 @@
 		<p>кавказ</p>
 		<p>КБР</p>
 		</fieldset>
-	</fieldset>
+	</div>
+</div>
 
-	<fieldset class='horizont'><legend>change log</legend>
-	
+<div id='t_Changes' class='tabs g3c' style='grid-auto-flow: dense'>
+	<div>change log</div>
 		<fieldset class='message'>
 		<legend>icon`s</legend>
 		<p>^ upd</p>
@@ -215,10 +220,9 @@
 		<p>^ :hover's</p>
 		<p>^ .snippet</p>
 		</fieldset>
-	</fieldset>
 </div>
 
-<div id='settings' class='tabs'>
+<div id='t_Settings' class='tabs'>
 	<form id='sf' class='message g3c' oninput='$$.GI("b").style=`filter: hue-rotate(${this.children.h.value}deg) saturate(${this.children.s.value}%) brightness(${this.children.l.value}%) invert(${this.elements.i.value}%);`;'>
 		<label class='span' id='hue' for='h'></label>
 		<input id='h' min="0" max="360" value="0" type="range"/>
@@ -247,7 +251,7 @@ parent: 'q',
 name: 'id',
 tag: 'div',
 clas: 'tabs',
-elements: ['canvas'],
+elements: ['t_Canvas'],
 
 	},];
 for(let i =0; y[i]; i++){$$.creator(y[i]);}
