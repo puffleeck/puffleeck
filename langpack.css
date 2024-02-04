@@ -1,40 +1,63 @@
-	#en:checked ~ *{
---canvas:			'canvas';
---author:			'author';
---changes:			'change`s log';
---info:				'information';
---settings:			'settings';
---hue:				'color selector';
---saturate:			'saturate';
---brightness:			'brightness';
---day:				'day style';
---night:			'night style';
---langs:			'language selector';
-	}
+/* просто потому что могу. в конце концов, так даже удобнее :3 */
+#en:checked ~ *{--loc_delay: -0s;}
+#ru:checked ~ *{--loc_delay: -1s;}
 
-	#ru:checked ~ *{
---canvas:			'холст';
---author:			'автор';
---changes:			'история изменений';
---info:				'информация';
---settings:			'настройки';
---hue:				'Hue`верть почти как в старом, добром AIMP только круче :3';
---saturate:			'насыщенность';
---brightness:			'яркость';
---day:				'дневная тема';
---night:			'ночная тема';
---langs:			'выбор языка';
-	}
 
-#menu > *:after{content: attr(href);}
-#to_canvas:after						{content: var(--canvas)}
-#to_author:after						{content: var(--author)}
-#to_changes:after						{content: var(--changes)}
-#to_info:after							{content: var(--info)}
-#to_settings:after						{content: var(--settings)}
-#hue:after							{content:var(--hue)}
-#saturate:after							{content:var(--saturate)}
-#brightness:after						{content:var(--brightness)}
-#day:after							{content: var(--day)}
-#night:after							{content: var(--night)}
-#langs:before							{content: var(--langs)}
+#canvas{
+--en: 'canvas';
+--ru: 'холст';
+}
+#author{
+--en: 'author';
+--ru: 'автор';
+}
+#settings{
+--en: 'setting`s';
+--ru: 'настройки';
+}
+#changes{
+--en: 'change log';
+--ru: 'история изменений';
+}
+#info{
+--en: 'information';
+--ru: 'информация';
+}
+
+#hue{
+--en: 'color selector';
+--ru: 'Hue`верть почти как в старом, добром AIMP только круче :3';
+}
+#saturate{
+--en: 'saturate';
+--ru: 'насыщенность';
+}
+#brightness{
+--en: 'brightness';
+--ru: 'яркость';
+}
+
+#day{
+--en: 'day style';
+--ru: 'дневная тема';
+}
+#night{
+--en: 'night style';
+--ru: 'ночная тема';
+}
+
+#langs{
+--en: 'language selector';
+--ru: 'выбор языка';
+}
+
+
+@keyframes loc{
+0%{content: attr(id)}
+to{content: var(--ru);}
+}
+.local:after{
+content: '';
+animation: loc 1s linear both paused;
+animation-delay: var(--loc_delay);
+}
