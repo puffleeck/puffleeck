@@ -51,9 +51,7 @@ creator: function (x)
 		var p = parent;
 		for (let j = 0; j < x.elements.length; j++) {
 			let spawn = $$.CE(x.tag);
-			spawn.id = x.elements[j] + j;
 			spawn[x.name] = x.elements[j];
-			if(x.id)spawn.id = x.id;
 			if(x.clas)spawn.className = x.clas;
 			if(x.style)spawn.style = x.style;
 			this.AC(this.GI(x.parent), spawn);
