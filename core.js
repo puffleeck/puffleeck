@@ -64,12 +64,13 @@ reStyler: function(){
 		'color: ' + this.GI('cast_color').value + ';' +
 		'background-color: ' + this.GI('cast_bg_color').value + ';' +
 		'}';
-	}
-,customise: function(target, form){
+	},
+customise: function(target, form){
 	this.GI(target).style=
 	`filter: hue-rotate(${form.children.h.value}deg)
 	saturate(${form.children.s.value}%)
 	brightness(${form.children.l.value}%)
-	invert(${form.elements.i.value}%)`;
+	invert(${form.elements.i.value}%);
+	--skin: -${form.elements.skin.value}s`;
 }
 };
