@@ -1,6 +1,6 @@
 /* просто потому что могу. в конце концов, так даже удобнее :3 */
-#en:checked ~ *{--loc_delay: -0s;}
-#ru:checked ~ *{--loc_delay: -1s;}
+#en:checked ~ *{--loc_delay: -1s;}
+#ru:checked ~ *{--loc_delay: -100s;}
 
 
 #canvas{
@@ -37,13 +37,18 @@
 --ru: 'яркость';
 }
 
+#invert{
+--en: 'invert colors';
+--ru: 'инверсия цветов';
+}
+
 #day{
---en: 'day style';
---ru: 'дневная тема';
+--en: 'day';
+--ru: 'дневная';
 }
 #night{
---en: 'night style';
---ru: 'ночная тема';
+--en: 'night';
+--ru: 'ночная';
 }
 
 #langs{
@@ -54,10 +59,11 @@
 
 @keyframes loc{
 0%{content: attr(id)}
+1%{content: var(--en);}
 to{content: var(--ru);}
 }
 .local:after{
 content: '';
-animation: loc 1s linear both paused;
+animation: loc 100s linear both paused;
 animation-delay: var(--loc_delay);
 }
