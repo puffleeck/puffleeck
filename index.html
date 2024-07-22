@@ -149,18 +149,27 @@
 </div>
 
 <div id='t_Settings' class='tabs'>
-	<form id='sf' class='message g3c' oninput='$$.customise("b", this)'>
+	<form id='sf' class='message g3c' oninput='$$.customise("b", this)' onload='$$.customise("b", this)'>
 		<label class='local span' id='hue' for='h'></label>
 		<input id='h' min="0" max="360" value="0" type="range"/>
-			
+
 		<label class='local span' id='saturate' for='s'></label>
 		<input id='s' min="0" max="200" value="100" type="number"/>
-			
+
 		<label class='local span' id='brightness' for='l'></label>
 		<input id='l' min="0" max="200" value="100" type="number"/>
 
+		<b class='local' id='invert'></b>
+		<label class='local' id='day'><input name='i' value="0" type="radio"/></label>
 		<label class='local' id='night'><input name='i' value="100" type="radio"/></label>
-		<label class='local' id='day'><input checked name='i' value="0" type="radio"/></label>
+
+		<label class='local'><input name='skin' value="0" type="radio"/>0</label>
+		<label class='local'><input name='skin' value="1" type="radio"/>1</label>
+		<label class='local'><input name='skin' value="2" type="radio"/>2</label>
+		<label class='local'><input name='skin' value="3" type="radio"/>3</label>
+		<label class='local'><input name='skin' value="4" type="radio"/>4</label>
+		<label class='local'><input name='skin' value="5" type="radio"/>5</label>
+		<label class='local'><input name='skin' value="100" type="radio"/>100</label>
 	</form>
 		
 	<div class='g4c message'>
@@ -170,71 +179,5 @@
 	</div>
 </div>
 </div></body>
-<script>
-var y = [{ // data
-parent: 'q',
-name: 'id',
-tag: 'div',
-clas: 'tabs gafd',
-elements: ['t_Canvas', 't_Changes'],
-	},{
-
-parent: 't_Changes',
-name: 'innerHTML',
-tag: 'div',
-clas: 'message5',
-style: 'grid-column: 1',
-elements: ["icon's", '^ upd', '* upg', '+ add', '- del', '/ div', '@ fix', '> replace', '-> merge',],
-	},{
-parent: 't_Changes',
-name: 'innerHTML',
-tag: 'div',
-clas: 'message3',
-style: 'grid-column: 2',
-elements: ['15.07.2022', '+ #sample', '^ #Print'],
-	},{
-parent: 't_Changes',
-name: 'innerHTML',
-tag: 'div',
-clas: 'message6',
-style: 'grid-column: 3',
-elements: ['31.08.2022', '+ #tpl', '+ $$.sort', '^ #f']
-	},{
-parent: 't_Changes',
-name: 'innerHTML',
-tag: 'div',
-clas: 'message4',
-style: 'grid-column: 4',
-elements: ['17.10.2023', '+ select float', '@ select inline', '@ #tpl css snippet', '@ #NoPrint']
-	},{
-parent: 't_Changes',
-name: 'innerHTML',
-tag: 'div',
-clas: 'message3',
-style: 'grid-column: 5',
-elements: ['19.10.2023', '+ .tabs:target', '@ #tpl', '@ $$.reStyler', '@ @media', 'sort() > CCN()']
-	},{
-parent: 't_Changes',
-name: 'innerHTML',
-tag: 'div',
-clas: 'message7',
-style: 'grid-column: 6',
-elements: ['25.10.2023', '+ Gantt', '+ display', '^ info', '@ new_add()', 'cards -> index']
-	},{
-parent: 't_Changes',
-name: 'innerHTML',
-tag: 'div',
-clas: 'message4',
-style: 'grid-column: 7',
-elements: ['28.12.2023', '+ switch lang`s', '* #cards', '@ custom', '/ *.js, *.css']
-	},{
-parent: 't_Changes',
-name: 'innerHTML',
-tag: 'div',
-clas: 'message3',
-style: 'grid-column: 8',
-elements: ['18.01.2024', '* #cards', '* #menu', '^ #info', "^ :hover's", '^ .snippet',],
-	}];
-for(let i =0; y[i]; i++){$$.creator(y[i]);}
-</script>
+<script src="data.js"></script>
 </html>
